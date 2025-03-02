@@ -95,7 +95,7 @@ async function FeaturedProducts() {
   const wixClient = getWixClient();
 
   const { collection } =
-    await wixClient.collections.getCollectionBySlug("featured-products");
+    await wixClient.collections.getCollectionBySlug("all-products");
 
   if (!collection?._id) {
     return null;
