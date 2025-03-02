@@ -84,9 +84,6 @@ export default function Home() {
         <div className="pt-0">
           <hr className="" />
         </div>
-        <div className="pt-0">
-          <hr className="" />
-        </div>
       </main>
     </>
   );
