@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ISI Shop",
+  title: "Fluff Magic",
   description:
-    "The Indian Surgical Instruments Project is an e-commerce web application designed to facilitate the online sale of surgical instruments across India.",
+    "The Fluff Magic E-Commerce Shop For Soft Toys",
 };
 
 export default function RootLayout({

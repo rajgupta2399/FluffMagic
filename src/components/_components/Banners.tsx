@@ -7,8 +7,6 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import banner1 from "../../assets/banner1.webp";
-import banner2 from "../../assets/banner2.webp";
 import Autoplay from "embla-carousel-autoplay";
 
 const Banners = () => {
@@ -23,34 +21,40 @@ const Banners = () => {
     >
       <CarouselContent>
         <CarouselItem>
-          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-60">
+          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-72">
             <Image
-              src={banner1}
+              src="https://www.uniseoul.in/cdn/shop/files/Homepage_banner-2.jpg?v=1726500462"
               alt="Banner 1"
               className="h-full w-full rounded-xl object-cover"
               priority
+              unoptimized
+              width={0}
+              height={0}
             />
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-60">
+          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-72">
             <Image
-              src={banner2}
+              src="https://www.uniseoul.in/cdn/shop/files/Banner4_d0f3c92c-6ba3-41d0-8f18-c2d23e7722c6.jpg?v=1726500486"
               alt="Banner 2"
               className="h-full w-full rounded-xl object-cover"
               priority
+              width={100}
+              unoptimized
+              height={100}
             />
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-60">
+          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-72">
             <Image
               src={
-                "https://d29azk3rh443yy.cloudfront.net/static/Banner/Category/baby_care_0xIKnzv.jpg"
+                "https://teddydaddy.in/wp-content/uploads/Home-Soft-Toy-Plush-Teddy-Daddy-6-1536x532.png"
               }
               alt="Banner 2"
               unoptimized
-              className="h-full w-full rounded-xl object-fill"
+              className="h-full w-full rounded-xl object-cover"
               priority
               width={100}
               height={100}

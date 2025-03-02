@@ -25,13 +25,14 @@ import GauzeSection from "@/components/_components/HomeComponentSection/GauzePro
 import BabyCareSection from "@/components/_components/HomeComponentSection/BabyCareSection";
 import HomeAndPersonalSection from "@/components/_components/HomeComponentSection/HomePersonalSection";
 import CriticalCareSection from "@/components/_components/HomeComponentSection/CriticalCareSection";
-import UrologyCareSection from "@/components/_components/HomeComponentSection/UrologySection";
 
 export default function Home() {
   return (
     <>
       <main className="mx-auto max-w-7xl space-y-5 px-5 py-16 sm:px-10">
-        <Banners />
+        <div className="box mt-5">
+          <Banners />
+        </div>
         <Suspense fallback={<ProductSkeleton />}>
           <FeaturedProducts />
         </Suspense>
@@ -83,9 +84,6 @@ export default function Home() {
         <div className="pt-0">
           <hr className="" />
         </div>
-        <Suspense fallback={""}>
-          <UrologyCareSection />
-        </Suspense>
         <div className="pt-0">
           <hr className="" />
         </div>

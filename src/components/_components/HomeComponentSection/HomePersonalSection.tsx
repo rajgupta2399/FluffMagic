@@ -11,11 +11,6 @@ import {
 import ProductSection from "./ProductSection";
 import Autoplay from "embla-carousel-autoplay";
 import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
-import HP1 from "../../../assets/Home-and-Personal-Protection-category.png";
-import HP2 from "../../../assets/Face-Mask-1.jpg";
-import HP3 from "../../../assets/Wearables-1.jpg";
-import HP4 from "../../../assets/Sanitization-Supplies-1.jpg";
-import HP5 from "../../../assets/Wearables-1.jpg";
 import Image from "next/image";
 import Link from "next/link";
 // import { ChevronRight } from "lucide-react";
@@ -98,59 +93,65 @@ export default function HomeAndPersonalSection() {
           <ChevronRight className="text-xs h-4 mr-4" />
         </div> */}
       </div>
-
       <div className="digitalInstrument flex w-full">
         <div className="digitalInstrumentBanner1 pr-0 sm:w-1/2 sm:pr-4">
           <Link href={"/digitalInstruments"}>
             <Image
-              src={HP1}
+              src="https://winkycoo.com/wp-content/uploads/2024/04/Donttt-1.png"
               alt="digitalInstrument Banner"
               width={0}
+              unoptimized
               height={0}
               className="w-full rounded-lg"
             />
           </Link>
         </div>
         <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
-          <div className="di1 flex space-x-4 pt-3">
+          <div className="di1 flex space-x-4 pt-1.5">
             <Link href={"/digitalInstruments"} className="w-full">
               <Image
-                src={HP2}
+                src={
+                  "https://winkycoo.com/wp-content/uploads/2024/05/Christmas-Sale-5.png"
+                }
                 alt="digitalInstrument Banner"
                 width={200}
+                unoptimized
                 height={200}
                 className="w-full rounded-lg"
               />
             </Link>
-            <Link href={"/digitalInstruments"} className="w-full">
+            {/* <Link href={"/digitalInstruments"} className="w-full">
               <Image
-                src={HP3}
+                src={DI3}
                 alt="digitalInstrument Banner"
                 width={0}
                 height={0}
                 className="w-full rounded-lg"
               />
-            </Link>
+            </Link> */}
           </div>
           <div className="di2 mt-4 flex space-x-4">
             <Link href={"/digitalInstruments"} className="w-full">
               <Image
-                src={HP4}
+                src={
+                  "https://winkycoo.com/wp-content/uploads/2024/04/Christmas-Sale-4.png"
+                }
                 alt="digitalInstrument Banner"
                 width={0}
+                unoptimized
                 height={0}
                 className="w-full rounded-lg"
               />
             </Link>
-            <Link href={"/digitalInstruments"} className="w-full">
+            {/* <Link href={"/digitalInstruments"} className="w-full">
               <Image
-                src={HP5}
+                src={DI4}
                 alt="digitalInstrument Banner"
                 width={0}
                 height={0}
                 className="w-full rounded-lg"
               />
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

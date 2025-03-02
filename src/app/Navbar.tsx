@@ -14,7 +14,7 @@ import {
   PanelTopInactive,
 } from "lucide-react";
 import Image from "next/image";
-import Logo from "../assets/logo1.png";
+import Logo from "../assets/fluffmagic.png";
 import { Search } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -162,7 +162,7 @@ export default async function Header() {
           <div className="flex items-center gap-8">
             {/* Logo */}
             <a href="#" className="flex items-center gap-2 text-gray-900">
-              <Image width={125} height={100} src={Logo} alt="logo" />
+              <Image width={60} height={50} src={Logo} alt="logo" />
             </a>
 
             {/* Navigation Links */}

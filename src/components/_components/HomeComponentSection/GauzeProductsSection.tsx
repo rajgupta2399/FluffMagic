@@ -11,11 +11,6 @@ import {
 import ProductSection from "./ProductSection";
 import Autoplay from "embla-carousel-autoplay";
 import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
-import GP1 from "../../../assets/Gauze-Products-category.png";
-import GP2 from "../../../assets/Bandages-1.jpg";
-import GP3 from "../../../assets/Gauze-Cloth-1.jpg";
-import GP4 from "../../../assets/Wound-Care-1.jpg";
-import GP5 from "../../../assets/Cannula-Fixator-1.jpg";
 import Image from "next/image";
 import Link from "next/link";
 // import { ChevronRight } from "lucide-react";
@@ -65,7 +60,7 @@ export default function GauzeSection() {
     return (
       <div className="relative space-y-3 overflow-hidden">
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
-            Gauze Products
+          Gauze Products
         </h2>
         <div className="relative mx-auto w-full max-w-screen-xl">
           <Carousel className="w-full">
@@ -103,54 +98,61 @@ export default function GauzeSection() {
         <div className="digitalInstrumentBanner1 pr-0 sm:w-1/2 sm:pr-4">
           <Link href={"/digitalInstruments"}>
             <Image
-              src={GP1}
+              src="https://winkycoo.com/wp-content/uploads/2024/04/Donttt-1.png"
               alt="digitalInstrument Banner"
               width={0}
+              unoptimized
               height={0}
               className="w-full rounded-lg"
             />
           </Link>
         </div>
         <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
-          <div className="di1 flex space-x-4 pt-3">
+          <div className="di1 flex space-x-4 pt-1.5">
             <Link href={"/digitalInstruments"} className="w-full">
               <Image
-                src={GP2}
+                src={
+                  "https://winkycoo.com/wp-content/uploads/2024/05/Christmas-Sale-5.png"
+                }
                 alt="digitalInstrument Banner"
                 width={200}
+                unoptimized
                 height={200}
                 className="w-full rounded-lg"
               />
             </Link>
-            <Link href={"/digitalInstruments"} className="w-full">
+            {/* <Link href={"/digitalInstruments"} className="w-full">
               <Image
-                src={GP3}
+                src={DI3}
                 alt="digitalInstrument Banner"
                 width={0}
                 height={0}
                 className="w-full rounded-lg"
               />
-            </Link>
+            </Link> */}
           </div>
           <div className="di2 mt-4 flex space-x-4">
             <Link href={"/digitalInstruments"} className="w-full">
               <Image
-                src={GP4}
+                src={
+                  "https://winkycoo.com/wp-content/uploads/2024/04/Christmas-Sale-4.png"
+                }
                 alt="digitalInstrument Banner"
                 width={0}
+                unoptimized
                 height={0}
                 className="w-full rounded-lg"
               />
             </Link>
-            <Link href={"/digitalInstruments"} className="w-full">
+            {/* <Link href={"/digitalInstruments"} className="w-full">
               <Image
-                src={GP5}
+                src={DI4}
                 alt="digitalInstrument Banner"
                 width={0}
                 height={0}
                 className="w-full rounded-lg"
               />
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
