@@ -7,11 +7,9 @@ export default function FooterApp() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-x-12 gap-y-16 md:col-span-3 lg:grid-cols-6">
           <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
-            <div className="text-2xl font-bold">
-              Indian Surgical Instruments
-            </div>
+            <div className="text-2xl font-bold">Fluff Magic Official</div>
             <p className="mt-7 text-base leading-relaxed text-muted-foreground">
-              Indian Surgical Instruments Surginatal is one stop online surgical
+              Fluff Magic Official Surginatal is one stop online soft toys
               supply store that works with Hospitals, Doctors, emergency
               clinics, facilities, drug stores, and patients to fulfill all of
               their surgical products needs. We are one of the top surgical
@@ -232,7 +230,8 @@ export default function FooterApp() {
         <hr className="mb-10 mt-16" />
 
         <p className="text-center text-sm text-muted-foreground">
-          © Copyright {new Date().getFullYear()}, All Rights Reserved by Indian Surgical Instruments
+          © Copyright {new Date().getFullYear()}, All Rights Reserved by Fluff
+          Magic Official
         </p>
       </div>
     </footer>

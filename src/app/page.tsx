@@ -17,14 +17,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Banners from "@/components/_components/Banners";
-import DigitalInstrumentsSection from "@/components/_components/HomeComponentSection/DigitalInstrumentSection";
-import InjectableDrugsSection from "@/components/_components/HomeComponentSection/InjectableDrugSection";
-import SurgicalSection from "@/components/_components/HomeComponentSection/SurgicalSection";
-import OrthopaedicSection from "@/components/_components/HomeComponentSection/OrthopaedicSection";
-import GauzeSection from "@/components/_components/HomeComponentSection/GauzeProductsSection";
-import BabyCareSection from "@/components/_components/HomeComponentSection/BabyCareSection";
-import HomeAndPersonalSection from "@/components/_components/HomeComponentSection/HomePersonalSection";
-import CriticalCareSection from "@/components/_components/HomeComponentSection/CriticalCareSection";
+// import SurgicalSection from "@/components/_components/HomeComponentSection/SurgicalSection";
+// import OrthopaedicSection from "@/components/_components/HomeComponentSection/OrthopaedicSection";
+// import GauzeSection from "@/components/_components/HomeComponentSection/GauzeProductsSection";
+// import BabyCareSection from "@/components/_components/HomeComponentSection/BabyCareSection";
+// import HomeAndPersonalSection from "@/components/_components/HomeComponentSection/HomePersonalSection";
+// import CriticalCareSection from "@/components/_components/HomeComponentSection/CriticalCareSection";
+import BabyProductsSection from "@/components/_components/HomeComponentSection/BabyProductsSection";
+import SoftToysSection from "@/components/_components/HomeComponentSection/SoftToysSection";
 
 export default function Home() {
   return (
@@ -37,18 +37,18 @@ export default function Home() {
           <FeaturedProducts />
         </Suspense>
         <Suspense fallback={""}>
-          <DigitalInstrumentsSection />
+          <BabyProductsSection />
         </Suspense>
         <div className="pt-0">
           <hr className="" />
         </div>
         <Suspense fallback={""}>
-          <InjectableDrugsSection />
+          <SoftToysSection />
         </Suspense>
         <div className="pt-0">
           <hr className="" />
         </div>
-        <Suspense fallback={""}>
+        {/* <Suspense fallback={""}>
           <SurgicalSection />
         </Suspense>
         <div className="pt-0">
@@ -83,7 +83,7 @@ export default function Home() {
         </Suspense>
         <div className="pt-0">
           <hr className="" />
-        </div>
+        </div> */}
       </main>
     </>
   );
@@ -113,7 +113,7 @@ async function FeaturedProducts() {
   return (
     <div className="relative space-y-3 overflow-hidden">
       <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
-        Featured Products
+        Top Selling Products
       </h2>
 
       <div className="relative mx-auto w-full max-w-screen-xl">

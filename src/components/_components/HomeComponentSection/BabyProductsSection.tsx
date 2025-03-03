@@ -11,11 +11,9 @@ import {
 import ProductSection from "./ProductSection";
 import Autoplay from "embla-carousel-autoplay";
 import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
-// import DI1 from "../../../assets/digital-instruments-category.png";
-// import DI2 from "../../../assets/di1.jpg";
-// import DI3 from "../../../assets/di2.jpg";
-// import DI4 from "../../../assets/di3.jpg";
-// import DI5 from "../../../assets/di4.jpg";
+import BabyToysBanner1 from "../../../assets/babyProductsBanner1.png";
+import BabyToysBanner2 from "../../../assets/babyProductsBanner2.png";
+import BabyToysBanner3 from "../../../assets/babyProductsSquare.png";
 import Image from "next/image";
 import Link from "next/link";
 // import { ChevronRight } from "lucide-react";
@@ -27,9 +25,10 @@ function ProductSkeleton() {
   );
 }
 
-export default function DigitalInstrumentsSection() {
-  const [digitalInstrumentProducts, setDigitalInstrumentProducts] =
-    useState<ProductsQueryResult | null>(null);
+export default function BabyProductsSection() {
+  const [babyProducts, setBabyProducts] = useState<ProductsQueryResult | null>(
+    null,
+  );
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -50,7 +49,7 @@ export default function DigitalInstrumentsSection() {
           .descending("lastUpdated")
           .find();
 
-        setDigitalInstrumentProducts(products);
+        setBabyProducts(products);
       } catch (error) {
         console.error("Error fetching digital instruments: ", error);
       } finally {
@@ -65,7 +64,7 @@ export default function DigitalInstrumentsSection() {
     return (
       <div className="relative space-y-3 overflow-hidden">
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
-          Digital Instruments
+          Baby Products
         </h2>
         <div className="relative mx-auto w-full max-w-screen-xl">
           <Carousel className="w-full">
@@ -85,13 +84,13 @@ export default function DigitalInstrumentsSection() {
     );
   }
 
-  if (!digitalInstrumentProducts?.items?.length) return null;
+  if (!babyProducts?.items?.length) return null;
 
   return (
     <div className="relative space-y-4 overflow-hidden py-2">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
-          Digital Instruments
+          Baby Products
         </h2>
         {/* <div className="ml-auto flex items-center space-x-1">
           <h5 className="text-sm font-semibold">See All</h5>
@@ -103,7 +102,7 @@ export default function DigitalInstrumentsSection() {
         <div className="digitalInstrumentBanner1 pr-0 sm:w-1/2 sm:pr-4">
           <Link href={"/digitalInstruments"}>
             <Image
-              src="https://winkycoo.com/wp-content/uploads/2024/04/Donttt-1.png"
+              src={BabyToysBanner3}
               alt="digitalInstrument Banner"
               width={0}
               unoptimized
@@ -113,10 +112,10 @@ export default function DigitalInstrumentsSection() {
           </Link>
         </div>
         <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
-          <div className="di1 flex space-x-4 pt-2">
+          <div className="di1 flex space-x-4 pt-1">
             <Link href={"/digitalInstruments"} className="w-full">
               <Image
-                src={"https://winkycoo.com/wp-content/uploads/2024/05/Christmas-Sale-5.png"}
+                src={BabyToysBanner1}
                 alt="digitalInstrument Banner"
                 width={200}
                 unoptimized
@@ -137,7 +136,7 @@ export default function DigitalInstrumentsSection() {
           <div className="di2 mt-4 flex space-x-4">
             <Link href={"/digitalInstruments"} className="w-full">
               <Image
-                src={"https://winkycoo.com/wp-content/uploads/2024/04/Christmas-Sale-4.png"}
+                src={BabyToysBanner2}
                 alt="digitalInstrument Banner"
                 width={0}
                 unoptimized
@@ -168,7 +167,7 @@ export default function DigitalInstrumentsSection() {
           className="w-full"
         >
           <CarouselContent className="flex">
-            {digitalInstrumentProducts.items.map((product) => (
+            {babyProducts.items.map((product) => (
               <CarouselItem
                 key={product._id!} // Using non-null assertion if sure _id exists
                 className="basis-1/2 md:basis-1/3 lg:basis-1/5"

@@ -13,6 +13,9 @@ import Autoplay from "embla-carousel-autoplay";
 import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
 import Image from "next/image";
 import Link from "next/link";
+import SoftToyBanner1 from "../../../assets/softToysBanner1.png";
+import SoftToyBanner3 from "../../../assets/softToysSquare.png";
+import SoftToyBanner2 from "../../../assets/softToysBanner2.png";
 // import { ChevronRight } from "lucide-react";
 
 // Skeleton Loader for better UX
@@ -22,8 +25,8 @@ function ProductSkeleton() {
   );
 }
 
-export default function InjectableDrugsSection() {
-  const [injectableDrugsProduct, setInjectableDrugsProduct] =
+export default function SoftToysSection() {
+  const [softToysProduct, setSoftToysProduct] =
     useState<ProductsQueryResult | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -45,7 +48,7 @@ export default function InjectableDrugsSection() {
           .descending("lastUpdated")
           .find();
 
-        setInjectableDrugsProduct(products);
+        setSoftToysProduct(products);
       } catch (error) {
         console.error("Error fetching digital instruments: ", error);
       } finally {
@@ -60,7 +63,7 @@ export default function InjectableDrugsSection() {
     return (
       <div className="relative space-y-3 overflow-hidden">
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
-          Digital Instruments
+          Soft Toys
         </h2>
         <div className="relative mx-auto w-full max-w-screen-xl">
           <Carousel className="w-full">
@@ -80,13 +83,13 @@ export default function InjectableDrugsSection() {
     );
   }
 
-  if (!injectableDrugsProduct?.items?.length) return null;
+  if (!softToysProduct?.items?.length) return null;
 
   return (
     <div className="relative space-y-4 overflow-hidden py-2">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
-          Injectable Drugs
+          Soft Toys
         </h2>
         {/* <div className="ml-auto flex items-center space-x-1">
           <h5 className="text-sm font-semibold">See All</h5>
@@ -98,7 +101,7 @@ export default function InjectableDrugsSection() {
         <div className="digitalInstrumentBanner1 pr-0 sm:w-1/2 sm:pr-4">
           <Link href={"/digitalInstruments"}>
             <Image
-              src="https://winkycoo.com/wp-content/uploads/2024/04/Donttt-1.png"
+              src={SoftToyBanner3}
               alt="digitalInstrument Banner"
               width={0}
               unoptimized
@@ -111,9 +114,7 @@ export default function InjectableDrugsSection() {
           <div className="di1 flex space-x-4 pt-1.5">
             <Link href={"/digitalInstruments"} className="w-full">
               <Image
-                src={
-                  "https://winkycoo.com/wp-content/uploads/2024/05/Christmas-Sale-5.png"
-                }
+                src={SoftToyBanner1}
                 alt="digitalInstrument Banner"
                 width={200}
                 unoptimized
@@ -134,9 +135,7 @@ export default function InjectableDrugsSection() {
           <div className="di2 mt-4 flex space-x-4">
             <Link href={"/digitalInstruments"} className="w-full">
               <Image
-                src={
-                  "https://winkycoo.com/wp-content/uploads/2024/04/Christmas-Sale-4.png"
-                }
+                src={SoftToyBanner2}
                 alt="digitalInstrument Banner"
                 width={0}
                 unoptimized
@@ -167,7 +166,7 @@ export default function InjectableDrugsSection() {
           className="w-full"
         >
           <CarouselContent className="flex">
-            {injectableDrugsProduct.items.map((product) => (
+            {softToysProduct.items.map((product) => (
               <CarouselItem
                 key={product._id!} // Using non-null assertion if sure _id exists
                 className="basis-1/2 md:basis-1/3 lg:basis-1/5"

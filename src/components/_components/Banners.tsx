@@ -8,6 +8,9 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import Banner1 from "../../assets/banner1.png";
+import Banner2 from "../../assets/banner2.png";
+import Banner3 from "../../assets/banner3.png";
 
 const Banners = () => {
   return (
@@ -21,9 +24,9 @@ const Banners = () => {
     >
       <CarouselContent>
         <CarouselItem>
-          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-72">
+          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-80">
             <Image
-              src="https://www.uniseoul.in/cdn/shop/files/Homepage_banner-2.jpg?v=1726500462"
+              src={Banner3}
               alt="Banner 1"
               className="h-full w-full rounded-xl object-cover"
               priority
@@ -34,9 +37,9 @@ const Banners = () => {
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-72">
+          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-80">
             <Image
-              src="https://www.uniseoul.in/cdn/shop/files/Banner4_d0f3c92c-6ba3-41d0-8f18-c2d23e7722c6.jpg?v=1726500486"
+              src={Banner2}
               alt="Banner 2"
               className="h-full w-full rounded-xl object-cover"
               priority
@@ -47,11 +50,9 @@ const Banners = () => {
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-72">
+          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-80">
             <Image
-              src={
-                "https://teddydaddy.in/wp-content/uploads/Home-Soft-Toy-Plush-Teddy-Daddy-6-1536x532.png"
-              }
+              src={Banner1}
               alt="Banner 2"
               unoptimized
               className="h-full w-full rounded-xl object-cover"
