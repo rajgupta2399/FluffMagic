@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 
 export default function FooterApp() {
   return (
@@ -174,14 +175,13 @@ export default function FooterApp() {
               </li>
 
               <li>
-                <a
-                  href="/terms"
+                <Link
+                  href={"/refund-return-policy"}
                   title=""
                   className="flex text-base transition-all duration-200 hover:text-primary focus:text-primary"
                 >
-                  {" "}
-                  Terms & Conditions{" "}
-                </a>
+                  Terms & Conditions
+                </Link>
               </li>
 
               <li>
