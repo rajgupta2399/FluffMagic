@@ -8,7 +8,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import Banner1 from "../../assets/banner1.png";
+import Banner1 from "../../assets/banner1.png"
 import Banner2 from "../../assets/banner2.png";
 import Banner3 from "../../assets/banner3.png";
 
@@ -24,11 +24,11 @@ const Banners = () => {
     >
       <CarouselContent>
         <CarouselItem>
-          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-80">
+          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-96">
             <Image
               src={Banner3}
               alt="Banner 1"
-              className="h-full w-full rounded-xl object-cover"
+              className="h-full w-full rounded-xl object-fill"
               priority
               unoptimized
               width={0}
@@ -37,11 +37,11 @@ const Banners = () => {
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-80">
+          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-96">
             <Image
               src={Banner2}
               alt="Banner 2"
-              className="h-full w-full rounded-xl object-cover"
+              className="h-full w-full rounded-xl object-fill"
               priority
               width={100}
               unoptimized
@@ -50,12 +50,12 @@ const Banners = () => {
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-80">
+          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-96">
             <Image
               src={Banner1}
               alt="Banner 2"
               unoptimized
-              className="h-full w-full rounded-xl object-cover"
+              className="h-full w-full rounded-xl object-fill"
               priority
               width={100}
               height={100}

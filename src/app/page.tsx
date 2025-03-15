@@ -2,7 +2,7 @@
 // import banner from "../assets/banner1.webp";
 // import Image from "next/image";
 import { Suspense } from "react";
-import { getWixClient } from "@/lib/wix-client.base";
+// import { getWixClient } from "@/lib/wix-client.base";
 import Product from "@/components/_components/Product";
 // import { Skeleton } from "@/components/ui/skeleton";
 import * as React from "react";
@@ -25,6 +25,8 @@ import Banners from "@/components/_components/Banners";
 // import CriticalCareSection from "@/components/_components/HomeComponentSection/CriticalCareSection";
 import BabyProductsSection from "@/components/_components/HomeComponentSection/BabyProductsSection";
 import SoftToysSection from "@/components/_components/HomeComponentSection/SoftToysSection";
+import { getCollectionBySlug } from "@/wix-api/collections";
+import { queryProducts } from "@/wix-api/products";
 
 export default function Home() {
   return (
@@ -92,20 +94,14 @@ export default function Home() {
 async function FeaturedProducts() {
   // await delay(1000);
 
-  const wixClient = getWixClient();
-
-  const { collection } =
-    await wixClient.collections.getCollectionBySlug("all-products");
-
+  const collection = await getCollectionBySlug("all-products");
   if (!collection?._id) {
     return null;
   }
 
-  const featuredProducts = await wixClient.products
-    .queryProducts()
-    .hasSome("collectionIds", [collection._id])
-    .descending("lastUpdated")
-    .find();
+  const featuredProducts = await queryProducts({
+    collectionIds: collection._id,
+  });
 
   if (!featuredProducts.items.length) {
     return null;
