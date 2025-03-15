@@ -10,35 +10,36 @@ interface ProductOptionsProps {
 
 export default function ProductOptions({
   product,
-  selectedOptions = {}, 
+  selectedOptions = {},
   setSelectedOptions,
 }: ProductOptionsProps) {
-    if (!product?.productOptions) {
-        console.error("Product options are undefined:", product);
-        return null;
-      }
+      if (!product?.productOptions) {
+    console.error("Product options are undefined:", product);
+    return null;
+  }
 
     console.log(product.productOptions)
   return (
     <div className="space-y-2.5">
-    {product.productOptions.map((option) => (
-      <fieldset key={option.name} className="space-y-1.5">
-        <legend>
-          <Label asChild>
-            <span>{option.name}</span>
-          </Label>
-        </legend>
-        <div className="flex flex-wrap items-center gap-1.5"></div>
-        <div className="flex flex-wrap items-center gap-1.5">
-          {option.choices && option.choices.length > 0 ? (
-            option.choices.map((choice) => (
+      {product.productOptions?.map((option) => (
+        <fieldset key={option.name} className="space-y-1.5">
+          <legend>
+            <Label asChild>
+              <span>{option.name}</span>
+            </Label>
+          </legend>
+          <div className="flex flex-wrap items-center gap-1.5"></div>
+          <div className="flex flex-wrap items-center gap-1.5">
+            {option.choices?.map((choice) => (
               <div key={choice.description}>
                 <input
                   type="radio"
                   id={choice.description}
                   name={option.name}
                   value={choice.description}
-                  checked={selectedOptions[option.name || ""] === choice.description}
+                  checked={
+                    selectedOptions[option.name || ""] === choice.description
+                  }
                   onChange={() =>
                     setSelectedOptions({
                       ...selectedOptions,
@@ -54,7 +55,7 @@ export default function ProductOptions({
                     !checkInStock(product, {
                       ...selectedOptions,
                       [option.name || ""]: choice.description || "",
-                    }) && "opacity-50"
+                    }) && "opacity-50",
                   )}
                 >
                   {option.optionType === products.OptionType.color && (
@@ -66,13 +67,10 @@ export default function ProductOptions({
                   <span>{choice.description}</span>
                 </Label>
               </div>
-            ))
-          ) : (
-            <p className="text-gray-500">No choices available</p>
-          )}
-        </div>
-      </fieldset>
-    ))}
-  </div>
+            ))}
+          </div>
+        </fieldset>
+      ))}
+    </div>
   );
 }
