@@ -6,9 +6,13 @@ import { Metadata } from "next";
 interface PageProps {
   params: { slug: string };
 }
+
+// export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+
 export async function generateMetadata({
   params: { slug },
 }: PageProps): Promise<Metadata> {
+  // const { slug } = params;
   const product = await getProductBySlug(slug);
 
   if (!product) notFound();
@@ -34,8 +38,7 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params }: PageProps) {
-  const { slug } = await params;
-
+  const { slug } = params;
   const product = await getProductBySlug(slug);
 
   if (!product?._id) notFound();
