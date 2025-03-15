@@ -50,42 +50,6 @@ export default function Home() {
         <div className="pt-0">
           <hr className="" />
         </div>
-        {/* <Suspense fallback={""}>
-          <SurgicalSection />
-        </Suspense>
-        <div className="pt-0">
-          <hr className="" />
-        </div>
-        <Suspense fallback={""}>
-          <OrthopaedicSection />
-        </Suspense>
-        <div className="pt-0">
-          <hr className="" />
-        </div>
-        <Suspense fallback={""}>
-          <GauzeSection />
-        </Suspense>
-        <div className="pt-0">
-          <hr className="" />
-        </div>
-        <Suspense fallback={""}>
-          <BabyCareSection />
-        </Suspense>
-        <div className="pt-0">
-          <hr className="" />
-        </div>
-        <Suspense fallback={""}>
-          <HomeAndPersonalSection />
-        </Suspense>
-        <div className="pt-0">
-          <hr className="" />
-        </div>
-        <Suspense fallback={""}>
-          <CriticalCareSection />
-        </Suspense>
-        <div className="pt-0">
-          <hr className="" />
-        </div> */}
       </main>
     </>
   );

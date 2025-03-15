@@ -10,15 +10,17 @@ interface ProductOptionsProps {
 
 export default function ProductOptions({
   product,
-  selectedOptions = {},
+  selectedOptions,
   setSelectedOptions,
-}: ProductOptionsProps) {
-      if (!product?.productOptions) {
+}: ProductOptionsProps) 
+
+{
+  if (!product?.productOptions) {
     console.error("Product options are undefined:", product);
     return null;
   }
 
-    console.log(product.productOptions)
+//   console.log(product.productOptions);
   return (
     <div className="space-y-2.5">
       {product.productOptions?.map((option) => (
