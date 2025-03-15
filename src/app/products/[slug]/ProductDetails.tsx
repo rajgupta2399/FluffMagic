@@ -68,7 +68,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
               dangerouslySetInnerHTML={{
                 __html: product.description || "",
               }}
-              className="prose dark:prose-invert text-sm text-muted-foreground"
+              className="prose text-sm text-muted-foreground dark:prose-invert"
             />
           )}
           <ProductPrice product={product} selectedVariant={selectVariant} />

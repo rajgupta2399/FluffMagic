@@ -2,18 +2,18 @@ import { getProductBySlug } from "@/wix-api/products";
 import { notFound } from "next/navigation";
 import ProductDetails from "./ProductDetails";
 import { Metadata } from "next";
-import { Product } from "@/app/types/product";
 
 interface PageProps {
   params: { slug: string };
 }
 
+// export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+
 export async function generateMetadata({
   params: { slug },
 }: PageProps): Promise<Metadata> {
-  console.log("Params in generateMetadata:", { slug }); // Debugging
+  // const { slug } = params;
   const product = await getProductBySlug(slug);
-  console.log("Product in generateMetadata:", product); // Debugging
 
   if (!product) notFound();
 
@@ -38,7 +38,6 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params }: PageProps) {
-  console.log("Params in Page:", params); // Debugging
   const { slug } = params;
   const product = await getProductBySlug(slug);
 
@@ -47,6 +46,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <main className="mx-auto max-w-7xl space-y-10 px-5 py-20 sm:px-10">
       <ProductDetails product={product} />
+      {/* <pre>{JSON.stringify(product, null, 2)}</pre> */}
     </main>
   );
 }
