@@ -2,6 +2,7 @@ import { getProductBySlug } from "@/wix-api/products";
 import { notFound } from "next/navigation";
 import ProductDetails from "./ProductDetails";
 import { Metadata } from "next";
+import { Product } from "@/app/types/product";
 
 interface PageProps {
   params: { slug: string };
@@ -12,6 +13,7 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   console.log("Params in generateMetadata:", { slug }); // Debugging
   const product = await getProductBySlug(slug);
+  console.log("Product in generateMetadata:", product); // Debugging
 
   if (!product) notFound();
 
