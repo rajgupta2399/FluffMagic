@@ -10,6 +10,7 @@ interface PageProps {
 export async function generateMetadata({
   params: { slug },
 }: PageProps): Promise<Metadata> {
+  console.log("Params in generateMetadata:", { slug }); // Debugging
   const product = await getProductBySlug(slug);
 
   if (!product) notFound();
@@ -35,6 +36,7 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params }: PageProps) {
+  console.log("Params in Page:", params); // Debugging
   const { slug } = params;
   const product = await getProductBySlug(slug);
 
