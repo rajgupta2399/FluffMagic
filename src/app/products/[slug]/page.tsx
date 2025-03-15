@@ -7,12 +7,9 @@ interface PageProps {
   params: { slug: string };
 }
 
-// export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-
 export async function generateMetadata({
   params: { slug },
 }: PageProps): Promise<Metadata> {
-  // const { slug } = params;
   const product = await getProductBySlug(slug);
 
   if (!product) notFound();
@@ -46,7 +43,6 @@ export default async function Page({ params }: PageProps) {
   return (
     <main className="mx-auto max-w-7xl space-y-10 px-5 py-20 sm:px-10">
       <ProductDetails product={product} />
-      {/* <pre>{JSON.stringify(product, null, 2)}</pre> */}
     </main>
   );
 }
