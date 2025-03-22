@@ -8,6 +8,13 @@ import ProductPrice from "./ProductPrice";
 import ProductMedia from "./ProductMedia";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { InfoIcon } from "lucide-react";
 
 interface ProductDetailsProps {
   product: products.Product;
@@ -61,7 +68,9 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             )}
             {product.ribbon && (
               <>
-                <Badge className="block rounded-full px-4 py-1.5 text-xs font-semibold text-white shadow-md">{product.ribbon}</Badge>
+                <Badge className="block rounded-full px-4 py-1.5 text-xs font-semibold text-white shadow-md">
+                  {product.ribbon}
+                </Badge>
               </>
             )}
           </div>
@@ -99,10 +108,37 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             />
           )}
 
-          <div>Selected Options : {JSON.stringify(selectedOptions)}</div>
+          {!!product.additionalInfoSections?.length && (
+            <div className="space-y-3 text-sm text-muted-foreground">
+              <span className="flex items-center gap-2">
+                <InfoIcon className="size-5" />
+                <span>Additional product information</span>
+              </span>
+              <Accordion type="multiple">
+                {product.additionalInfoSections.map((section) => (
+                  <AccordionItem
+                    value={section.title || ""}
+                    key={section.title}
+                  >
+                    <AccordionTrigger>{section.title}</AccordionTrigger>
+                    <AccordionContent>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: section.description || "",
+                        }}
+                        className="prose text-sm text-muted-foreground dark:prose-invert"
+                      />
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          )}
+
+          {/* <div>Selected Options : {JSON.stringify(selectedOptions)}</div>
           <div>
             Selected variants : {JSON.stringify(selectVariant?.choices)}
-          </div>
+          </div> */}
         </div>
       </div>
     </>
