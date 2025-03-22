@@ -43,7 +43,7 @@ const Banners = () => {
         <CarouselItem className=" sm:flex hidden">
           <div className="flex h-32 w-full items-center justify-center bg-secondary md:h-96">
             <Image
-              src={Banners2}
+              src={Banners4}
               alt="Banner 2"
               className="h-full w-full rounded-xl object-fill"
               priority
@@ -69,7 +69,7 @@ const Banners = () => {
         <CarouselItem>
           <div className="flex h-32 w-full items-center justify-center bg-secondary md:h-96">
             <Image
-              src={Banners4}
+              src={Banners2}
               alt="Banner 2"
               unoptimized
               className="h-full w-full rounded-xl object-fill"

@@ -4,6 +4,14 @@ import { products } from "@wix/stores";
 import { PlayIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import Zoom from "react-medium-image-zoom";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  // CarouselNext,
+  // CarouselPrevious,
+} from "@/components/ui/carousel";
 
 interface ProductMediaProps {
   media: products.MediaItem[] | undefined;
@@ -44,18 +52,37 @@ export default function ProductMedia({ media }: ProductMediaProps) {
           </div>
         ) : null}
       </div>
-      {media.length > 1 && (
-        <div className="flex flex-wrap sm:gap-5 gap-1">
-          {media.map((mediaItem) => (
-            <MediaPreview
-              key={mediaItem._id}
-              mediaItem={mediaItem}
-              isSelected={mediaItem._id === selectedMedia?._id}
-              onSelect={() => setSelectedMedia(mediaItem)}
-            />
-          ))}
+{media.length > 1 && (
+        <div className="relative w-full max-w-screen-xl">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[Autoplay({ delay: 5000 })]}
+            className="w-full"
+          >
+            <CarouselContent className="flex">
+              {media.map((mediaItem) => (
+                <CarouselItem
+                  key={mediaItem._id}
+                  className="basis-1/3 md:basis-1/4 lg:basis-1/4"
+                >
+                  <MediaPreview
+                    mediaItem={mediaItem}
+                    isSelected={mediaItem._id === selectedMedia?._id}
+                    onSelect={() => setSelectedMedia(mediaItem)}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+
+            {/* <CarouselPrevious className="absolute top-1/2 z-10 -translate-y-1/2 sm:left-0" />
+            <CarouselNext className="absolute top-1/2 z-10 -translate-y-1/2 sm:right-0" /> */}
+          </Carousel>
         </div>
       )}
+
     </div>
   );
 }
@@ -89,7 +116,7 @@ function MediaPreview({ mediaItem, isSelected, onSelect }: MediaPreviewProps) {
         alt={mediaItem.image?.altText || mediaItem.video?.files?.[0].altText}
         width={100}
         height={100}
-        className=" sm:w-32 w-20"
+        className=" sm:w-32 w-24"
         onMouseEnter={onSelect}
       />
       {resolvedThumbnailUrl && (

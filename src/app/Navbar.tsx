@@ -155,13 +155,19 @@ export default async function Header() {
   return (
     <>
       {/* Top Navbar for Large Screens */}
-      <header className="fixed left-0 top-0 z-50 hidden w-full bg-white shadow-lg lg:block">
+      <header className="fixed left-0 top-0 z-50 hidden w-full bg-white shadow-lg lg:block w-full">
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-10 py-6">
           {/* Left Side - Logo & Navigation */}
           <div className="flex items-center gap-8">
             {/* Logo */}
             <Link href={"/"}>
-              <Image width={60} height={50} src={Logo} alt="logo" className=" sm:w-16 w-8" />
+              <Image
+                width={60}
+                height={50}
+                src={Logo}
+                alt="logo"
+                className="w-8 sm:w-16"
+              />
             </Link>
 
             {/* Navigation Links */}
@@ -296,9 +302,10 @@ export default async function Header() {
       <header className="fixed left-0 top-0 z-50 w-full bg-slate-50 shadow-lg lg:hidden">
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 text-gray-900">
+          <Link href={"/"}>
             <Image width={60} height={100} src={Logo} alt="logo" />
-          </a>
+          </Link>
+          {/* <a href="#" className="flex items-center gap-2 text-gray-900"></a> */}
           <div className="flex items-center gap-3 align-middle">
             <a href="#" className="">
               <Image src={whatsapp} alt="whatsapp" width={28} height={50} />
