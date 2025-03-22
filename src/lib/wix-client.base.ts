@@ -33,3 +33,5 @@ export function getWixClient() {
     }),
   });
 }
+
+export type WixClient = ReturnType<typeof getWixClient>;

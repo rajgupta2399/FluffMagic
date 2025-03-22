@@ -59,7 +59,7 @@ async function Page({ params }: PageProps) {
   if (!product?._id) notFound();
 
   return (
-    <main className="mx-auto max-w-7xl space-y-10 px-5 py-20 sm:px-10">
+    <main className="mx-auto max-w-7xl space-y-10 px-5 py-24 sm:px-10">
       <ProductDetails product={product} />
       {/* <pre>{JSON.stringify(product, null, 2)}</pre> */}
     </main>

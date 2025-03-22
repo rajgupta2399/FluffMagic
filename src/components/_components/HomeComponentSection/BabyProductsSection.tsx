@@ -146,7 +146,7 @@ export default function BabyProductsSection() {
 
       <div className="digitalInstrument flex w-full">
         <div className="digitalInstrumentBanner1 pr-0 sm:w-1/2 sm:pr-4">
-          <Link href={"/digitalInstruments"}>
+          <Link href={"/baby-products"}>
             <Image
               src={BabyToysBanner3}
               alt="digitalInstrument Banner"
@@ -159,7 +159,7 @@ export default function BabyProductsSection() {
         </div>
         <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
           <div className="di1 flex space-x-4 pt-1">
-            <Link href={"/digitalInstruments"} className="w-full">
+            <Link href={"/baby-products"} className="w-full">
               <Image
                 src={BabyToysBanner1}
                 alt="digitalInstrument Banner"
@@ -169,18 +169,9 @@ export default function BabyProductsSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/digitalInstruments"} className="w-full">
-              <Image
-                src={DI3}
-                alt="digitalInstrument Banner"
-                width={0}
-                height={0}
-                className="w-full rounded-lg"
-              />
-            </Link> */}
           </div>
           <div className="di2 mt-4 flex space-x-4">
-            <Link href={"/digitalInstruments"} className="w-full">
+            <Link href={"/baby-products"} className="w-full">
               <Image
                 src={BabyToysBanner2}
                 alt="digitalInstrument Banner"
