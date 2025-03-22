@@ -122,15 +122,6 @@ export default function BabyCareSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/digitalInstruments"} className="w-full">
-              <Image
-                src={DI3}
-                alt="digitalInstrument Banner"
-                width={0}
-                height={0}
-                className="w-full rounded-lg"
-              />
-            </Link> */}
           </div>
           <div className="di2 mt-4 flex space-x-4">
             <Link href={"/digitalInstruments"} className="w-full">
@@ -145,15 +136,6 @@ export default function BabyCareSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/digitalInstruments"} className="w-full">
-              <Image
-                src={DI4}
-                alt="digitalInstrument Banner"
-                width={0}
-                height={0}
-                className="w-full rounded-lg"
-              />
-            </Link> */}
           </div>
         </div>
       </div>

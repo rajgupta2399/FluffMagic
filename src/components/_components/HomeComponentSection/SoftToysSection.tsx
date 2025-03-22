@@ -65,6 +65,21 @@ export default function SoftToysSection() {
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
           Soft Toys
         </h2>
+        <div className="flex w-full">
+          {/* Skeleton for Banner 1 */}
+          <div className="digitalInstrumentBanner1 w-full sm:w-1/2 sm:pr-4">
+          <div className="h-80 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+        </div>
+          {/* Skeleton for Banner 2 */}
+          <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
+            <div className="di1 flex space-x-4 pt-1">
+              <div className="h-36 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+            </div>
+            <div className="di2 mt-4 flex space-x-4">
+              <div className="h-40 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+            </div>
+          </div>
+        </div>
         <div className="relative mx-auto w-full max-w-screen-xl">
           <Carousel className="w-full">
             <CarouselContent className="flex">

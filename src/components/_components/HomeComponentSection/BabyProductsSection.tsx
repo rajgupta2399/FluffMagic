@@ -16,6 +16,7 @@ import BabyToysBanner2 from "../../../assets/babyProductsBanner2.png";
 import BabyToysBanner3 from "../../../assets/babyProductsSquare.png";
 import Image from "next/image";
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 // import { ChevronRight } from "lucide-react";
 
 // Skeleton Loader for better UX
@@ -60,12 +61,55 @@ export default function BabyProductsSection() {
     fetchProducts();
   }, []);
 
+  // if (loading) {
+  //   return (
+  //     <div className="relative space-y-3 overflow-hidden">
+  //       <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
+  //         Baby Products
+  //       </h2>
+
+
+  //       <div className="relative mx-auto w-full max-w-screen-xl">
+  //         <Carousel className="w-full">
+  //           <CarouselContent className="flex">
+  //             {[...Array(5)].map((_, index) => (
+  //               <CarouselItem
+  //                 key={index}
+  //                 className="basis-1/2 md:basis-1/3 lg:basis-1/5"
+  //               >
+  //                 <ProductSkeleton />
+  //               </CarouselItem>
+  //             ))}
+  //           </CarouselContent>
+  //         </Carousel>
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
   if (loading) {
     return (
       <div className="relative space-y-3 overflow-hidden">
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
           Baby Products
         </h2>
+        <div className="flex w-full">
+          {/* Skeleton for Banner 1 */}
+          <div className="digitalInstrumentBanner1 w-full sm:w-1/2 sm:pr-4">
+          <div className="h-80 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+        </div>
+          
+          {/* Skeleton for Banner 2 */}
+          <div className="hidden w-1/2 sm:block">
+            <div className="di1 flex space-x-4 pt-1">
+              <div className="h-36 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+            </div>
+            <div className="di2 mt-4 flex space-x-4">
+              <div className="h-40 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+            </div>
+          </div>
+        </div>
+  
         <div className="relative mx-auto w-full max-w-screen-xl">
           <Carousel className="w-full">
             <CarouselContent className="flex">
@@ -83,6 +127,7 @@ export default function BabyProductsSection() {
       </div>
     );
   }
+  
 
   if (!babyProducts?.items?.length) return null;
 
@@ -92,10 +137,10 @@ export default function BabyProductsSection() {
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
           Baby Products
         </h2>
-        {/* <div className="ml-auto flex items-center space-x-1">
+        <div className="ml-auto flex items-center space-x-1">
           <h5 className="text-sm font-semibold">See All</h5>
           <ChevronRight className="text-xs h-4 mr-4" />
-        </div> */}
+        </div>
       </div>
 
       <div className="digitalInstrument flex w-full">
@@ -144,15 +189,6 @@ export default function BabyProductsSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/digitalInstruments"} className="w-full">
-              <Image
-                src={DI4}
-                alt="digitalInstrument Banner"
-                width={0}
-                height={0}
-                className="w-full rounded-lg"
-              />
-            </Link> */}
           </div>
         </div>
       </div>

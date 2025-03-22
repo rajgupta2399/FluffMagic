@@ -24,11 +24,11 @@ const Banners = () => {
     >
       <CarouselContent>
         <CarouselItem>
-          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-96">
+          <div className="flex h-36 w-full items-center justify-center bg-secondary md:h-96">
             <Image
               src={Banner3}
               alt="Banner 1"
-              className="h-full w-full rounded-xl object-fill"
+              className="h-full w-full rounded-xl object-fill sm:h-full sm:w-full"
               priority
               unoptimized
               width={0}
@@ -37,7 +37,7 @@ const Banners = () => {
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-96">
+          <div className="flex h-36 w-full items-center justify-center bg-secondary md:h-96">
             <Image
               src={Banner2}
               alt="Banner 2"
@@ -50,7 +50,7 @@ const Banners = () => {
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="flex h-28 w-full items-center justify-center bg-secondary md:h-96">
+          <div className="flex h-36 w-full items-center justify-center bg-secondary md:h-96">
             <Image
               src={Banner1}
               alt="Banner 2"

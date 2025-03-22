@@ -34,7 +34,6 @@ import { SunIcon } from "@/components/_components/Icons/SunIcon";
 import { getCart } from "@/wix-api/cart";
 // import { getWixClient } from "@/lib/wix-client.base";
 
-
 interface ComponentItem {
   title: string;
   href: string;
@@ -149,7 +148,7 @@ export default async function Header() {
     },
   ];
 
-  const cart = await getCart()
+  const cart = await getCart();
   const totalQuantity =
     cart?.lineItems.reduce((acc, item) => acc + (item.quantity || 0), 0) || 0;
 
@@ -161,9 +160,9 @@ export default async function Header() {
           {/* Left Side - Logo & Navigation */}
           <div className="flex items-center gap-8">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2 text-gray-900">
-              <Image width={60} height={50} src={Logo} alt="logo" />
-            </a>
+            <Link href={"/"}>
+              <Image width={60} height={50} src={Logo} alt="logo" className=" sm:w-16 w-8" />
+            </Link>
 
             {/* Navigation Links */}
             <ul className="flex gap-0">
@@ -197,7 +196,7 @@ export default async function Header() {
                                 key={component.title}
                                 title={component.title}
                                 href={component.href}
-                                className=" ml-10"
+                                className="ml-10"
                               >
                                 <div className="flex items-center gap-2">
                                   {component.icon} {/* Display icon */}
@@ -298,7 +297,7 @@ export default async function Header() {
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 text-gray-900">
-            <Image width={100} height={100} src={Logo} alt="logo" />
+            <Image width={60} height={100} src={Logo} alt="logo" />
           </a>
           <div className="flex items-center gap-3 align-middle">
             <a href="#" className="">
