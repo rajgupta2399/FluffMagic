@@ -8,9 +8,13 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import Banner1 from "../../assets/banner1.png"
-import Banner2 from "../../assets/banner2.png";
-import Banner3 from "../../assets/banner3.png";
+// import Banner1 from "../../assets/banner1.png"
+// import Banner2 from "../../assets/banner2.png";
+// import Banner3 from "../../assets/banner3.png";
+import Banners1 from "../../assets/1.webp"
+import Banners2 from "../../assets/2.webp"
+import Banners3 from "../../assets/3.webp"
+import Banners4 from "../../assets/4.webp"
 
 const Banners = () => {
   return (
@@ -24,9 +28,9 @@ const Banners = () => {
     >
       <CarouselContent>
         <CarouselItem>
-          <div className="flex h-36 w-full items-center justify-center bg-secondary md:h-96">
+          <div className="flex h-32 w-full items-center justify-center bg-secondary md:h-96">
             <Image
-              src={Banner3}
+              src={Banners1}
               alt="Banner 1"
               className="h-full w-full rounded-xl object-fill sm:h-full sm:w-full"
               priority
@@ -36,10 +40,10 @@ const Banners = () => {
             />
           </div>
         </CarouselItem>
-        <CarouselItem>
-          <div className="flex h-36 w-full items-center justify-center bg-secondary md:h-96">
+        <CarouselItem className=" sm:flex hidden">
+          <div className="flex h-32 w-full items-center justify-center bg-secondary md:h-96">
             <Image
-              src={Banner2}
+              src={Banners2}
               alt="Banner 2"
               className="h-full w-full rounded-xl object-fill"
               priority
@@ -50,9 +54,22 @@ const Banners = () => {
           </div>
         </CarouselItem>
         <CarouselItem>
-          <div className="flex h-36 w-full items-center justify-center bg-secondary md:h-96">
+          <div className="flex h-32 w-full items-center justify-center bg-secondary md:h-96">
             <Image
-              src={Banner1}
+              src={Banners3}
+              alt="Banner 2"
+              unoptimized
+              className="h-full w-full rounded-xl object-fill"
+              priority
+              width={100}
+              height={100}
+            />
+          </div>
+        </CarouselItem>
+        <CarouselItem>
+          <div className="flex h-32 w-full items-center justify-center bg-secondary md:h-96">
+            <Image
+              src={Banners4}
               alt="Banner 2"
               unoptimized
               className="h-full w-full rounded-xl object-fill"

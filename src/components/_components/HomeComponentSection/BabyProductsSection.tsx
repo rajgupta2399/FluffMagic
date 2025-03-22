@@ -68,7 +68,6 @@ export default function BabyProductsSection() {
   //         Baby Products
   //       </h2>
 
-
   //       <div className="relative mx-auto w-full max-w-screen-xl">
   //         <Carousel className="w-full">
   //           <CarouselContent className="flex">
@@ -96,9 +95,9 @@ export default function BabyProductsSection() {
         <div className="flex w-full">
           {/* Skeleton for Banner 1 */}
           <div className="digitalInstrumentBanner1 w-full sm:w-1/2 sm:pr-4">
-          <div className="h-80 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
-        </div>
-          
+            <div className="h-80 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+          </div>
+
           {/* Skeleton for Banner 2 */}
           <div className="hidden w-1/2 sm:block">
             <div className="di1 flex space-x-4 pt-1">
@@ -109,7 +108,7 @@ export default function BabyProductsSection() {
             </div>
           </div>
         </div>
-  
+
         <div className="relative mx-auto w-full max-w-screen-xl">
           <Carousel className="w-full">
             <CarouselContent className="flex">
@@ -127,20 +126,22 @@ export default function BabyProductsSection() {
       </div>
     );
   }
-  
 
   if (!babyProducts?.items?.length) return null;
 
   return (
     <div className="relative space-y-4 overflow-hidden py-2">
-      <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
+      <div className="flex items-center justify-between border-b pb-2">
+        <h2 className="text-xl font-bold text-gray-800 sm:text-2xl sm:font-semibold">
           Baby Products
         </h2>
-        <div className="ml-auto flex items-center space-x-1">
-          <h5 className="text-sm font-semibold">See All</h5>
-          <ChevronRight className="text-xs h-4 mr-4" />
-        </div>
+        <Link
+          href="/baby-products"
+          className="flex items-center space-x-2 text-sm font-semibold text-black transition-all duration-300 hover:translate-x-1 hover:text-[#fd9aac]"
+        >
+          <span>See All</span>
+          <ChevronRight className="h-4 w-4" />
+        </Link>
       </div>
 
       <div className="digitalInstrument flex w-full">

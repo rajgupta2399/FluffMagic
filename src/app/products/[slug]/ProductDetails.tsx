@@ -53,31 +53,24 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
         />
         <div className="basis-3/5 space-y-5">
           <div className="space-y-2.5">
-            <h1 className="text-3xl font-semibold lg:text-3xl">
+            <h1 className="text-xl font-semibold lg:text-3xl">
               {product.name}
             </h1>
             {product.brand && (
               <div className="text-muted-foreground">{product.brand}</div>
             )}
             {product.ribbon && (
-              <Badge className="block">{product.ribbon}</Badge>
+              <>
+                <Badge className="block rounded-full px-4 py-1.5 text-xs font-semibold text-white shadow-md">{product.ribbon}</Badge>
+              </>
             )}
           </div>
-          {product.description && (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: product.description || "",
-              }}
-              className="prose text-sm text-muted-foreground dark:prose-invert"
-            />
-          )}
           <ProductPrice product={product} selectedVariant={selectVariant} />
           <ProductOptions
             product={product}
             selectedOptions={selectedOptions}
             setSelectedOptions={setSelectedOptions}
           />
-
           <div className="space-y-1.5">
             <Label htmlFor="quantity">Quantity</Label>
             <div className="flex items-center gap-2.5">
@@ -97,6 +90,14 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                 )}
             </div>
           </div>
+          {product.description && (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: product.description || "",
+              }}
+              className="prose text-sm text-muted-foreground dark:prose-invert"
+            />
+          )}
 
           <div>Selected Options : {JSON.stringify(selectedOptions)}</div>
           <div>

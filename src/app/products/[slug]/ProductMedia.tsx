@@ -45,7 +45,7 @@ export default function ProductMedia({ media }: ProductMediaProps) {
         ) : null}
       </div>
       {media.length > 1 && (
-        <div className="flex flex-wrap gap-5">
+        <div className="flex flex-wrap sm:gap-5 gap-1">
           {media.map((mediaItem) => (
             <MediaPreview
               key={mediaItem._id}
@@ -89,6 +89,7 @@ function MediaPreview({ mediaItem, isSelected, onSelect }: MediaPreviewProps) {
         alt={mediaItem.image?.altText || mediaItem.video?.files?.[0].altText}
         width={100}
         height={100}
+        className=" sm:w-32 w-20"
         onMouseEnter={onSelect}
       />
       {resolvedThumbnailUrl && (

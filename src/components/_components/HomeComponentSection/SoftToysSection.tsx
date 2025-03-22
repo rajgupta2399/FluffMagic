@@ -16,6 +16,7 @@ import Link from "next/link";
 import SoftToyBanner1 from "../../../assets/softToysBanner1.png";
 import SoftToyBanner3 from "../../../assets/softToysSquare.png";
 import SoftToyBanner2 from "../../../assets/softToysBanner2.png";
+import { ChevronRight } from "lucide-react";
 // import { ChevronRight } from "lucide-react";
 
 // Skeleton Loader for better UX
@@ -106,10 +107,13 @@ export default function SoftToysSection() {
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
           Soft Toys
         </h2>
-        {/* <div className="ml-auto flex items-center space-x-1">
-          <h5 className="text-sm font-semibold">See All</h5>
-          <ChevronRight className="text-xs h-4 mr-4" />
-        </div> */}
+        <Link
+          href="/baby-products"
+          className="flex items-center space-x-2 text-sm font-semibold text-black transition-all duration-300 hover:translate-x-1 hover:text-[#fd9aac]"
+        >
+          <span>See All</span>
+          <ChevronRight className="h-4 w-4" />
+        </Link>
       </div>
 
       <div className="digitalInstrument flex w-full">
