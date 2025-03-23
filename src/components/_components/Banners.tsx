@@ -12,7 +12,7 @@ import Autoplay from "embla-carousel-autoplay";
 // import Banner2 from "../../assets/banner2.png";
 // import Banner3 from "../../assets/banner3.png";
 import Banners1 from "../../assets/1.webp"
-import Banners2 from "../../assets/2.webp"
+// import Banners2 from "../../assets/2.webp"
 import Banners3 from "../../assets/3.webp"
 import Banners4 from "../../assets/4.webp"
 
@@ -66,7 +66,7 @@ const Banners = () => {
             />
           </div>
         </CarouselItem>
-        <CarouselItem>
+        {/* <CarouselItem>
           <div className="flex h-32 w-full items-center justify-center bg-secondary md:h-96">
             <Image
               src={Banners2}
@@ -78,7 +78,7 @@ const Banners = () => {
               height={100}
             />
           </div>
-        </CarouselItem>
+        </CarouselItem> */}
       </CarouselContent>
     </Carousel>
   );

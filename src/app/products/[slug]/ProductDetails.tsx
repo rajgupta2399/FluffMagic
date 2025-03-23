@@ -65,15 +65,22 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
               {product.name}
             </h1>
             {product.brand && (
-              <div className="text-muted-foreground">{product.brand}</div>
+              <>
+                <div className="flex gap-5">
+                  <div className="text-muted-foreground">{product.brand}</div>
+                  <Badge className="block rounded-full px-4 py-1.5 text-xs font-semibold text-white shadow-md">
+                    {product.ribbon}
+                  </Badge>
+                </div>
+              </>
             )}
-            {product.ribbon && (
+            {/* {product.ribbon && (
               <>
                 <Badge className="block rounded-full px-4 py-1.5 text-xs font-semibold text-white shadow-md">
                   {product.ribbon}
                 </Badge>
               </>
-            )}
+            )} */}
           </div>
           <ProductPrice product={product} selectedVariant={selectVariant} />
           <ProductOptions
