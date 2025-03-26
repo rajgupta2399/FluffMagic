@@ -27,6 +27,7 @@ import BabyProductsSection from "@/components/_components/HomeComponentSection/B
 import SoftToysSection from "@/components/_components/HomeComponentSection/SoftToysSection";
 import { getCollectionBySlug } from "@/wix-api/collections";
 import { queryProducts } from "@/wix-api/products";
+import HomeDecorSection from "@/components/_components/HomeComponentSection/HomeDecorSection";
 
 export default function Home() {
   return (
@@ -46,6 +47,9 @@ export default function Home() {
         </div>
         <Suspense fallback={""}>
           <SoftToysSection />
+        </Suspense>
+        <Suspense fallback={""}>
+          <HomeDecorSection />
         </Suspense>
         <div className="pt-0">
           <hr className="" />

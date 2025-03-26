@@ -118,7 +118,7 @@ export default function SoftToysSection() {
 
       <div className="digitalInstrument flex w-full">
         <div className="digitalInstrumentBanner1 pr-0 sm:w-1/2 sm:pr-4">
-          <Link href={"/digitalInstruments"}>
+          <Link href={"/soft-toys"}>
             <Image
               src={SoftToyBanner3}
               alt="digitalInstrument Banner"
@@ -131,7 +131,7 @@ export default function SoftToysSection() {
         </div>
         <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
           <div className="di1 flex space-x-4 pt-1.5">
-            <Link href={"/digitalInstruments"} className="w-full">
+            <Link href={"/soft-toys"} className="w-full">
               <Image
                 src={SoftToyBanner1}
                 alt="digitalInstrument Banner"
@@ -141,7 +141,7 @@ export default function SoftToysSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/digitalInstruments"} className="w-full">
+            {/* <Link href={"/soft-toys"} className="w-full">
               <Image
                 src={DI3}
                 alt="digitalInstrument Banner"
@@ -152,7 +152,7 @@ export default function SoftToysSection() {
             </Link> */}
           </div>
           <div className="di2 mt-4 flex space-x-4">
-            <Link href={"/digitalInstruments"} className="w-full">
+            <Link href={"/soft-toys"} className="w-full">
               <Image
                 src={SoftToyBanner2}
                 alt="digitalInstrument Banner"
@@ -162,7 +162,7 @@ export default function SoftToysSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/digitalInstruments"} className="w-full">
+            {/* <Link href={"/soft-toys"} className="w-full">
               <Image
                 src={DI4}
                 alt="digitalInstrument Banner"

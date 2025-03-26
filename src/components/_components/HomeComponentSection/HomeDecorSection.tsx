@@ -13,6 +13,10 @@ import Autoplay from "embla-carousel-autoplay";
 import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
 import Image from "next/image";
 import Link from "next/link";
+import SoftToyBanner1 from "../../../assets/softToysBanner1.png";
+import SoftToyBanner3 from "../../../assets/softToysSquare.png";
+import SoftToyBanner2 from "../../../assets/softToysBanner2.png";
+import { ChevronRight } from "lucide-react";
 // import { ChevronRight } from "lucide-react";
 
 // Skeleton Loader for better UX
@@ -22,8 +26,8 @@ function ProductSkeleton() {
   );
 }
 
-export default function CriticalCareSection() {
-  const [criticalProducts, setCriticalProducts] =
+export default function HomeDecorSection() {
+  const [softToysProduct, setSoftToysProduct] =
     useState<ProductsQueryResult | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -45,7 +49,7 @@ export default function CriticalCareSection() {
           .descending("lastUpdated")
           .find();
 
-        setCriticalProducts(products);
+        setSoftToysProduct(products);
       } catch (error) {
         console.error("Error fetching digital instruments: ", error);
       } finally {
@@ -60,8 +64,23 @@ export default function CriticalCareSection() {
     return (
       <div className="relative space-y-3 overflow-hidden">
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
-          Critical Care
+          Home Decor
         </h2>
+        <div className="flex w-full">
+          {/* Skeleton for Banner 1 */}
+          <div className="digitalInstrumentBanner1 w-full sm:w-1/2 sm:pr-4">
+          <div className="h-80 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+        </div>
+          {/* Skeleton for Banner 2 */}
+          <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
+            <div className="di1 flex space-x-4 pt-1">
+              <div className="h-36 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+            </div>
+            <div className="di2 mt-4 flex space-x-4">
+              <div className="h-40 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+            </div>
+          </div>
+        </div>
         <div className="relative mx-auto w-full max-w-screen-xl">
           <Carousel className="w-full">
             <CarouselContent className="flex">
@@ -80,24 +99,28 @@ export default function CriticalCareSection() {
     );
   }
 
-  if (!criticalProducts?.items?.length) return null;
+  if (!softToysProduct?.items?.length) return null;
 
   return (
     <div className="relative space-y-4 overflow-hidden py-2">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
-          Critical Care
+          Home Decor
         </h2>
-        {/* <div className="ml-auto flex items-center space-x-1">
-          <h5 className="text-sm font-semibold">See All</h5>
-          <ChevronRight className="text-xs h-4 mr-4" />
-        </div> */}
+        <Link
+          href="/baby-products"
+          className="flex items-center space-x-2 text-sm font-semibold text-black transition-all duration-300 hover:translate-x-1 hover:text-[#fd9aac]"
+        >
+          <span>See All</span>
+          <ChevronRight className="h-4 w-4" />
+        </Link>
       </div>
+
       <div className="digitalInstrument flex w-full">
         <div className="digitalInstrumentBanner1 pr-0 sm:w-1/2 sm:pr-4">
-          <Link href={"/digitalInstruments"}>
+          <Link href={"/home-decor"}>
             <Image
-              src="https://winkycoo.com/wp-content/uploads/2024/04/Donttt-1.png"
+              src={SoftToyBanner3}
               alt="digitalInstrument Banner"
               width={0}
               unoptimized
@@ -108,11 +131,9 @@ export default function CriticalCareSection() {
         </div>
         <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
           <div className="di1 flex space-x-4 pt-1.5">
-            <Link href={"/digitalInstruments"} className="w-full">
+            <Link href={"/home-decor"} className="w-full">
               <Image
-                src={
-                  "https://winkycoo.com/wp-content/uploads/2024/05/Christmas-Sale-5.png"
-                }
+                src={SoftToyBanner1}
                 alt="digitalInstrument Banner"
                 width={200}
                 unoptimized
@@ -120,7 +141,7 @@ export default function CriticalCareSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/digitalInstruments"} className="w-full">
+            {/* <Link href={"/home-decor"} className="w-full">
               <Image
                 src={DI3}
                 alt="digitalInstrument Banner"
@@ -131,11 +152,9 @@ export default function CriticalCareSection() {
             </Link> */}
           </div>
           <div className="di2 mt-4 flex space-x-4">
-            <Link href={"/digitalInstruments"} className="w-full">
+            <Link href={"/home-decor"} className="w-full">
               <Image
-                src={
-                  "https://winkycoo.com/wp-content/uploads/2024/04/Christmas-Sale-4.png"
-                }
+                src={SoftToyBanner2}
                 alt="digitalInstrument Banner"
                 width={0}
                 unoptimized
@@ -143,7 +162,7 @@ export default function CriticalCareSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/digitalInstruments"} className="w-full">
+            {/* <Link href={"/home-decor"} className="w-full">
               <Image
                 src={DI4}
                 alt="digitalInstrument Banner"
@@ -166,7 +185,7 @@ export default function CriticalCareSection() {
           className="w-full"
         >
           <CarouselContent className="flex">
-            {criticalProducts.items.map((product) => (
+            {softToysProduct.items.map((product) => (
               <CarouselItem
                 key={product._id!} // Using non-null assertion if sure _id exists
                 className="basis-1/2 md:basis-1/3 lg:basis-1/5"
