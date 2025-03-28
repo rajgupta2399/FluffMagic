@@ -27,4 +27,4 @@ The Fluff Magic Project is an e-commerce web application designed to facilitate 
 - Implements a streamlined checkout process integrated with payment gateways.
 - Ensures secure transactions and order tracking.
 
-Live Link : https://fluffmagicofficial.netlify.app/
+Live Link  https://fluffmagicofficial.netlify.app/
