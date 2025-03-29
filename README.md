@@ -1,6 +1,6 @@
 # Fluff Magic
 
-The Fluff Magic Project is an e-commerce web application designed to facilitate the online sale of surgical instruments across India. This project leverages Wix Headless CMS for backend database management and product listings while utilizing Next.js for a dynamic, high-performance frontend.
+The Fluff Magic Project is an e-commerce web application designed to facilitate the online sale of soft toys and baby related products across India. This project leverages Wix Headless CMS for backend database management and product listings while utilizing Next.js for a dynamic, high-performance frontend.
 
 ### Key Features of the Project:
 
@@ -27,4 +27,4 @@ The Fluff Magic Project is an e-commerce web application designed to facilitate 
 - Implements a streamlined checkout process integrated with payment gateways.
 - Ensures secure transactions and order tracking.
 
-Live Link : https://fluffmagicofficial.netlify.app/
+Live Link  https://fluffmagicofficial.netlify.app/
