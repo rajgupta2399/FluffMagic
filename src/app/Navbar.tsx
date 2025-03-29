@@ -3,7 +3,7 @@ import {
   Home,
   User,
   LayoutGrid,
-  ShoppingCart,
+  // ShoppingCart,
   CodesandboxIcon,
   Baby,
   GitCommitVerticalIcon,
@@ -32,6 +32,8 @@ import ProfileIcon from "@/components/_components/ProfileIcon";
 // import { MoonIcon } from "@/components/_components/Icons/MoonIcon";
 import { SunIcon } from "@/components/_components/Icons/SunIcon";
 import { getCart } from "@/wix-api/cart";
+import { getWixServerClient } from "@/lib/wix-client.server";
+import ShoppingCartButton from "./ShoppingCartButton";
 // import { getWixClient } from "@/lib/wix-client.base";
 
 interface ComponentItem {
@@ -148,14 +150,14 @@ export default async function Header() {
     },
   ];
 
-  const cart = await getCart();
-  const totalQuantity =
-    cart?.lineItems.reduce((acc, item) => acc + (item.quantity || 0), 0) || 0;
+  const cart = await getCart(getWixServerClient());
+  // const totalQuantity =
+  //   cart?.lineItems.reduce((acc, item) => acc + (item.quantity || 0), 0) || 0;
 
   return (
     <>
       {/* Top Navbar for Large Screens */}
-      <header className="fixed left-0 top-0 z-50 hidden w-full bg-white shadow-lg lg:block w-full">
+      <header className="fixed left-0 top-0 z-50 hidden w-full bg-white shadow-lg lg:block">
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-10 py-6">
           {/* Left Side - Logo & Navigation */}
           <div className="flex items-center gap-8">
@@ -276,17 +278,17 @@ export default async function Header() {
 
           {/* Right Side - Icons */}
           <div className="flex items-center gap-3">
-            <div className="relative">
+            {/* <div className="relative">
               <a href="#" className="flex flex-col items-center text-gray-700">
                 <ShoppingCart className="h-6 w-8" />
               </a>
-              {/* Badge for Cart Quantity */}
               {totalQuantity > 0 && (
                 <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">
                   {totalQuantity}
                 </span>
               )}
-            </div>
+            </div> */}
+            <ShoppingCartButton initialData={cart} />
             <ProfileIcon />
             {/* <a href="#" className="">
               <Image src={whatsapp} alt="whatsapp" width={35} height={50} />
@@ -307,13 +309,13 @@ export default async function Header() {
           </Link>
           {/* <a href="#" className="flex items-center gap-2 text-gray-900"></a> */}
           <div className="flex items-center gap-3 align-middle">
-            <a href="#" className="">
-              <Image src={whatsapp} alt="whatsapp" width={28} height={50} />
-            </a>
-
-            <a href="#" className="flex flex-col items-center text-gray-700">
-              <ShoppingCart className="h-6 w-8" />
-            </a>
+            {/* In your mobile header */}
+            <div className="flex items-center gap-3 align-middle">
+              <a href="#" className="">
+                <Image src={whatsapp} alt="whatsapp" width={28} height={50} />
+              </a>
+              <ShoppingCartButton initialData={cart} />
+            </div>
           </div>
         </nav>
       </header>
@@ -335,7 +337,8 @@ export default async function Header() {
           </li>
           <li>
             <a href="#" className="flex flex-col items-center text-gray-700">
-              <ShoppingCart className="h-5 w-5" />
+              {/* <ShoppingCart className="h-5 w-5" /> */}
+              <ShoppingCartButton initialData={cart} />
               <span className="text-xs font-semibold">Cart</span>
             </a>
           </li>

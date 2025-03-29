@@ -1,7 +1,8 @@
 import { getProductBySlug } from "@/wix-api/products";
 import { notFound } from "next/navigation";
 import ProductDetails from "./ProductDetails";
-// import { Metadata } from "next";
+import { getWixServerClient } from "@/lib/wix-client.server";
+import { Metadata } from "next";
 
 // interface PageProps {
 //   params: { slug: string };
@@ -16,32 +17,32 @@ interface PageProps {
   searchParams?: SearchParams;
 }
 
-// export async function generateMetadata({
-//   params: { slug },
-// }: PageProps): Promise<Metadata> {
-//   const product = await getProductBySlug(slug);
+export async function generateMetadata({
+  params: { slug },
+}: PageProps): Promise<Metadata> {
+  const product = await getProductBySlug(getWixServerClient(),slug);
 
-//   if (!product) notFound();
+  if (!product) notFound();
 
-//   const mainImage = product.media?.mainMedia?.image;
+  const mainImage = product.media?.mainMedia?.image;
 
-//   return {
-//     title: product.name,
-//     description: "Get this product on Fluff Magic",
-//     openGraph: {
-//       images: mainImage?.url
-//         ? [
-//             {
-//               url: mainImage.url,
-//               width: mainImage.width,
-//               height: mainImage.height,
-//               alt: mainImage.altText || "",
-//             },
-//           ]
-//         : undefined,
-//     },
-//   };
-// }
+  return {
+    title: product.name,
+    description: "Get this product on Fluff Magic",
+    openGraph: {
+      images: mainImage?.url
+        ? [
+            {
+              url: mainImage.url,
+              width: mainImage.width,
+              height: mainImage.height,
+              alt: mainImage.altText || "",
+            },
+          ]
+        : undefined,
+    },
+  };
+}
 
 async function Page({ params }: PageProps) {
   if (!params || !params.slug) notFound(); // Check if params is undefined
@@ -53,7 +54,7 @@ async function Page({ params }: PageProps) {
   if (!slug) notFound();
 
   // Fetch the product using the slug
-  const product = await getProductBySlug(slug);
+  const product = await getProductBySlug(getWixServerClient(), slug);
 
   // If product is not found, return a 404
   if (!product?._id) notFound();

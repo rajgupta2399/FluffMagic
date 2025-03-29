@@ -28,6 +28,7 @@ import SoftToysSection from "@/components/_components/HomeComponentSection/SoftT
 import { getCollectionBySlug } from "@/wix-api/collections";
 import { queryProducts } from "@/wix-api/products";
 import HomeDecorSection from "@/components/_components/HomeComponentSection/HomeDecorSection";
+import { getWixServerClient } from "@/lib/wix-client.server";
 
 export default function Home() {
   return (
@@ -62,12 +63,14 @@ export default function Home() {
 async function FeaturedProducts() {
   // await delay(1000);
 
-  const collection = await getCollectionBySlug("all-products");
+  const wixClient = getWixServerClient();
+
+  const collection = await getCollectionBySlug(wixClient, "all-products");
   if (!collection?._id) {
     return null;
   }
 
-  const featuredProducts = await queryProducts({
+  const featuredProducts = await queryProducts(wixClient, {
     collectionIds: collection._id,
   });
 

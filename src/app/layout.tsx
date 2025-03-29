@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer } from "./Footer";
 import Header from "./Navbar";
+import ReactQueryProvider from "./ReactQueryProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,8 +20,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Fluff Magic",
-  description:
-    "The Fluff Magic E-Commerce Shop For Soft Toys",
+  description: "The Fluff Magic E-Commerce Shop For Soft Toys",
 };
 
 export default function RootLayout({
@@ -32,9 +33,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <ReactQueryProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ReactQueryProvider>
+        <Toaster />
       </body>
     </html>
   );
