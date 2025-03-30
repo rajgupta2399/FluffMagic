@@ -63,7 +63,13 @@ export default function Home() {
 async function FeaturedProducts() {
   // await delay(1000);
 
-  const wixClient = getWixServerClient();
+  const wixClient = await getWixServerClient(); // Add await here
+
+  // Add debug check
+  if (!wixClient?.collections) {
+    console.error("Collections module not available in WixClient");
+    return null;
+  }
 
   const collection = await getCollectionBySlug(wixClient, "all-products");
   if (!collection?._id) {

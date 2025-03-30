@@ -32,8 +32,8 @@ import ProfileIcon from "@/components/_components/ProfileIcon";
 // import { MoonIcon } from "@/components/_components/Icons/MoonIcon";
 import { SunIcon } from "@/components/_components/Icons/SunIcon";
 import { getCart } from "@/wix-api/cart";
-import { getWixServerClient } from "@/lib/wix-client.server";
 import ShoppingCartButton from "./ShoppingCartButton";
+import { getWixServerClient } from "@/lib/wix-client.server";
 // import { getWixClient } from "@/lib/wix-client.base";
 
 interface ComponentItem {
@@ -150,7 +150,7 @@ export default async function Header() {
     },
   ];
 
-  const cart = await getCart(getWixServerClient());
+  const cart = await getCart(await getWixServerClient());
   // const totalQuantity =
   //   cart?.lineItems.reduce((acc, item) => acc + (item.quantity || 0), 0) || 0;
 

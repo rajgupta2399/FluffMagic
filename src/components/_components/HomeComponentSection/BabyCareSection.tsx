@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/carousel";
 import ProductSection from "./ProductSection";
 import Autoplay from "embla-carousel-autoplay";
-import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
+// import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
+import { ProductsQueryResult } from "@wix/auto_sdk_stores_products";
 import Image from "next/image";
 import Link from "next/link";
 // import { ChevronRight } from "lucide-react";
@@ -31,7 +32,12 @@ export default function BabyCareSection() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const wixClient = getWixClient();
+        const wixClient = getWixClient(undefined);
+
+        if (!wixClient.collections) {
+          console.error("Wix client collections module is undefined!");
+          return;
+        }
         const { collection } =
           await wixClient.collections.getCollectionBySlug("all-products");
 

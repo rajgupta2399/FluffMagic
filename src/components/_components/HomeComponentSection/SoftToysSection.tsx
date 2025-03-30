@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/carousel";
 import ProductSection from "./ProductSection";
 import Autoplay from "embla-carousel-autoplay";
-import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
+// import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
+import { ProductsQueryResult } from "@wix/auto_sdk_stores_products";
 import Image from "next/image";
 import Link from "next/link";
 import SoftToyBanner1 from "../../../assets/softToysBanner1.png";
@@ -34,7 +35,12 @@ export default function SoftToysSection() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const wixClient = getWixClient();
+        const wixClient = getWixClient(undefined);
+
+        if (!wixClient.collections) {
+          console.error("Wix client collections module is undefined!");
+          return;
+        }
         const { collection } =
           await wixClient.collections.getCollectionBySlug("all-products");
 
@@ -69,8 +75,8 @@ export default function SoftToysSection() {
         <div className="flex w-full">
           {/* Skeleton for Banner 1 */}
           <div className="digitalInstrumentBanner1 w-full sm:w-1/2 sm:pr-4">
-          <div className="h-80 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
-        </div>
+            <div className="h-80 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+          </div>
           {/* Skeleton for Banner 2 */}
           <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
             <div className="di1 flex space-x-4 pt-1">
