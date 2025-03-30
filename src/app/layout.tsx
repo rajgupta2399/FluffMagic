@@ -20,7 +20,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Fluff Magic",
-  description: "The Fluff Magic E-Commerce Shop For Soft Toys",
+  description: "The Fluff Magic E-Commerce Shop For Soft Toys & Baby Products",
 };
 
 export default function RootLayout({
