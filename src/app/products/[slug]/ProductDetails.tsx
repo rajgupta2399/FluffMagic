@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/accordion";
 import { InfoIcon } from "lucide-react";
 import AddToCartButton from "@/components/_components/AddToCartButton";
+import BackInStockNotificationButton from "@/components/_components/BackInStockNotification";
 
 interface ProductDetailsProps {
   product: products.Product;
@@ -125,12 +126,12 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             /> */}
             </div>
           ) : (
-            "Out Of Stock"
-            // <BackInStockNotificationButton
-            //   product={product}
-            //   selectedOptions={selectedOptions}
-            //   className="w-full"
-            // />
+            // "Out Of Stock"
+            <BackInStockNotificationButton
+              product={product}
+              selectedOptions={selectedOptions}
+              className="w-full"
+            />
           )}
 
           {product.description && (
