@@ -14,9 +14,12 @@ import Autoplay from "embla-carousel-autoplay";
 import { ProductsQueryResult } from "@wix/auto_sdk_stores_products";
 import Image from "next/image";
 import Link from "next/link";
-import SoftToyBanner1 from "../../../assets/softToysBanner1.png";
-import SoftToyBanner3 from "../../../assets/softToysSquare.png";
-import SoftToyBanner2 from "../../../assets/softToysBanner2.png";
+// import SoftToyBanner1 from "../../../assets/softToysBanner1.png";
+// import SoftToyBanner3 from "../../../assets/softToysSquare.png";
+// import SoftToyBanner2 from "../../../assets/softToysBanner2.png";
+import HomeDecorBanner1 from "../../../assets/home decor products banner sqr.png"
+import HomeDecorBanner2 from "../../../assets/home decor banner reg 1.png"
+import HomeDecorBanner3 from "../../../assets/home decor products banner reg.png"
 import { ChevronRight } from "lucide-react";
 // import { ChevronRight } from "lucide-react";
 
@@ -126,7 +129,7 @@ export default function HomeDecorSection() {
         <div className="digitalInstrumentBanner1 pr-0 sm:w-1/2 sm:pr-4">
           <Link href={"/home-decor"}>
             <Image
-              src={SoftToyBanner3}
+              src={HomeDecorBanner1}
               alt="digitalInstrument Banner"
               width={0}
               unoptimized
@@ -139,7 +142,7 @@ export default function HomeDecorSection() {
           <div className="di1 flex space-x-4 pt-1.5">
             <Link href={"/home-decor"} className="w-full">
               <Image
-                src={SoftToyBanner1}
+                src={HomeDecorBanner2}
                 alt="digitalInstrument Banner"
                 width={200}
                 unoptimized
@@ -160,7 +163,7 @@ export default function HomeDecorSection() {
           <div className="di2 mt-4 flex space-x-4">
             <Link href={"/home-decor"} className="w-full">
               <Image
-                src={SoftToyBanner2}
+                src={HomeDecorBanner3}
                 alt="digitalInstrument Banner"
                 width={0}
                 unoptimized
