@@ -7,6 +7,23 @@ const wixClient = createClient({
   auth: OAuthStrategy({ clientId: env.NEXT_PUBLIC_WIX_CLIENT_ID }),
 });
 
+// export const middleware = async (request: NextResponse) => {
+//   const cookies = request.cookies;
+//   const res = NextResponse.next();
+
+//   if (cookies.get("refreshToken")) {
+//     return res;
+//   }
+
+//   const wixClient = createClient({
+//     auth: OAuthStrategy({ clientId: env.NEXT_PUBLIC_WIX_CLIENT_ID }),
+//   });
+
+//   const tokens = await wixClient.auth.generateVisitorTokens();
+//   res.cookies.set("refreshToken", JSON.stringify(tokens.refreshToken));
+//   res.cookies.set("accessToken", JSON.stringify(tokens.accessToken));
+// };
+
 export async function middleware(request: NextRequest) {
   const cookies = request.cookies;
   const sessionCookie = cookies.get(WIX_SESSION_COOKIE);

@@ -41,14 +41,14 @@ export default function ShoppingCartButton({
     <>
       <div className="relative">
         <Button variant="ghost" size="icon" onClick={() => setSheetOpen(true)}>
-          <ShoppingCartIcon className="h-10 w-10" />
+          <ShoppingCartIcon className="h-12 w-12 -mb-1" />
           <span className="absolute right-0 top-0 flex size-4 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">
             {totalQuantity < 10 ? totalQuantity : "9+"}
           </span>
         </Button>
       </div>
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-        <SheetContent className="flex flex-col sm:max-w-lg">
+        <SheetContent className="flex flex-col sm:max-w-lg bg-white dark:bg-[#16181D] ">
           <SheetHeader>
             <SheetTitle>
               Your cart{" "}

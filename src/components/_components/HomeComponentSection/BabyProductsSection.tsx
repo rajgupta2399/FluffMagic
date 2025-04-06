@@ -139,12 +139,12 @@ export default function BabyProductsSection() {
   return (
     <div className="relative space-y-4 overflow-hidden py-2">
       <div className="flex items-center justify-between border-b pb-2">
-        <h2 className="text-xl font-bold text-gray-800 sm:text-2xl sm:font-semibold">
+        <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
           Baby Products
         </h2>
         <Link
           href="/baby-products"
-          className="flex items-center space-x-2 text-sm font-semibold text-black transition-all duration-300 hover:translate-x-1 hover:text-[#fd9aac]"
+          className="flex items-center space-x-2 text-sm font-semibold transition-all duration-300 hover:translate-x-1 hover:text-[#fd9aac] -mb-6"
         >
           <span>See All</span>
           <ChevronRight className="h-4 w-4" />
@@ -207,7 +207,7 @@ export default function BabyProductsSection() {
                 key={product._id!} // Using non-null assertion if sure _id exists
                 className="basis-1/2 md:basis-1/3 lg:basis-1/5"
               >
-                <div className="h-full rounded-lg border p-1">
+                <div className="h-full rounded-lg border p-1 bg-white dark:bg-[#16181D] ">
                   <ProductSection product={product} />
                 </div>
               </CarouselItem>

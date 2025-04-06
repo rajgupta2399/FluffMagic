@@ -13,7 +13,7 @@ export default function Product({ product }: ProductProps) {
   const mainImage = product.media?.mainMedia?.image;
 
   return (
-    <Link href={`/products/${product.slug}`} className="h-full  bg-card rounded-lg">
+    <Link href={`/products/${product.slug}`} className="h-full rounded-lg bg-white dark:bg-[#16181D] ">
       <div className="relative overflow-hidden">
         <WixImage
           mediaIdentifier={mainImage?.url}
@@ -35,8 +35,8 @@ export default function Product({ product }: ProductProps) {
         <h3 className="text-sm line-clamp-2 font-semibold">{product.name}</h3>
 
         {/* Price displayed below product name */}
-        <p className="text-sm font-semibold text-gray-600">
-          <span className="pr-1 text-gray-900">
+        <p className="text-sm font-semibold">
+          <span className="pr-1">
             {getFormattedPrice(product)}
           </span>
           {product?.price?.formatted?.price && (

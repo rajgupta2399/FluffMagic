@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <>
       <main className="mx-auto max-w-7xl space-y-5 px-5 py-16 sm:px-10">
-        <div className="box mt-5">
+        <div className="box mt-7">
           <Banners />
         </div>
         <Suspense fallback={<ProductSkeleton />}>
@@ -103,7 +103,7 @@ async function FeaturedProducts() {
                 key={product._id}
                 className="basis-1/2 md:basis-1/3 lg:basis-1/5"
               >
-                <div className="h-full rounded-lg border p-1">
+                <div className="h-full rounded-lg border p-1 bg-white dark:bg-[#16181D] ">
                   <Product product={product} />
                 </div>
               </CarouselItem>
@@ -111,8 +111,8 @@ async function FeaturedProducts() {
           </CarouselContent>
 
           {/* Make sure buttons are visible and positioned */}
-          <CarouselPrevious className="absolute top-1/2 z-10 -translate-y-1/2 sm:left-0" />
-          <CarouselNext className="absolute top-1/2 z-10 -translate-y-1/2 sm:right-0" />
+          <CarouselPrevious className="absolute top-1/2 z-10 -translate-y-1/2 sm:left-0 bg-white dark:bg-[#16181D] " />
+          <CarouselNext className="absolute top-1/2 z-10 -translate-y-1/2 sm:right-0  bg-white dark:bg-[#16181D] " />
         </Carousel>
       </div>
 

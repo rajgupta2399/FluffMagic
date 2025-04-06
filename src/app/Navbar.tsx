@@ -5,13 +5,13 @@ import {
   LayoutGrid,
   // ShoppingCart,
   CodesandboxIcon,
-  Baby,
-  GitCommitVerticalIcon,
-  MusicIcon,
-  Bandage,
-  FileDigit,
-  HomeIcon,
-  PanelTopInactive,
+  // Baby,
+  // GitCommitVerticalIcon,
+  // MusicIcon,
+  // Bandage,
+  // FileDigit,
+  // HomeIcon,
+  // PanelTopInactive,
 } from "lucide-react";
 import Image from "next/image";
 import Logo from "../assets/fluffmagic.png";
@@ -30,111 +30,110 @@ import {
 import whatsapp from "../assets/whatsapp.png";
 import ProfileIcon from "@/components/_components/ProfileIcon";
 // import { MoonIcon } from "@/components/_components/Icons/MoonIcon";
-import { SunIcon } from "@/components/_components/Icons/SunIcon";
 import { getCart } from "@/wix-api/cart";
 import ShoppingCartButton from "./ShoppingCartButton";
 import { getWixServerClient } from "@/lib/wix-client.server";
-// import { getWixClient } from "@/lib/wix-client.base";
-
-interface ComponentItem {
-  title: string;
-  href: string;
-  description?: string;
-  icon: React.ReactElement; // Correct TypeScript type for JSX Elements
-}
+import UserButton from "@/components/_components/UserButton";
+// interface ComponentItem {
+//   title: string;
+//   href: string;
+//   description?: string;
+//   icon: React.ReactElement; // Correct TypeScript type for JSX Elements
+// }
 
 export default async function Header() {
-  const components: ComponentItem[] = [
-    {
-      title: "Baby Care",
-      href: "/baby-care",
-      icon: <Baby className="h-5 w-5 text-blue-600" />,
-    },
-    {
-      title: "Critical Care",
-      href: "/docs/primitives/hover-card",
-      icon: <GitCommitVerticalIcon className="h-5 w-5 text-green-600" />,
-    },
-    {
-      title: "Digital Instruments",
-      href: "/docs/primitives/progress",
-      icon: <FileDigit className="h-5 w-5 text-purple-600" />,
-    },
-    {
-      title: "Gauze Products",
-      href: "/docs/primitives/progress",
-      icon: <Bandage className="h-5 w-5 text-purple-600" />,
-    },
-    {
-      title: "Home and Personal Protection",
-      href: "/docs/primitives/progress",
-      icon: <HomeIcon className="h-5 w-5 text-purple-600" />,
-    },
-    {
-      title: "Home Patient care",
-      href: "/docs/primitives/progress",
-      icon: <PanelTopInactive className="h-5 w-5 text-purple-600" />,
-    },
-    {
-      title: "Laboratory Products",
-      href: "/docs/primitives/progress",
-      icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-    },
-    {
-      title: "Orthopaedic Supplies",
-      href: "/docs/primitives/progress",
-      icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-    },
-    {
-      title: "Pediatrician",
-      href: "/docs/primitives/progress",
-      icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-    },
-    {
-      title: "Surgical",
-      href: "/docs/primitives/progress",
-      icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-    },
-    {
-      title: "Surgical Sutures",
-      href: "/docs/primitives/progress",
-      icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-    },
-    {
-      title: "Syringe & Needles",
-      href: "/docs/primitives/progress",
-      icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-    },
-    {
-      title: "Urology",
-      href: "/docs/primitives/progress",
-      icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-    },
-  ];
+  // const components: ComponentItem[] = [
+  //   {
+  //     title: "Baby Care",
+  //     href: "/baby-care",
+  //     icon: <Baby className="h-5 w-5 text-blue-600" />,
+  //   },
+  //   {
+  //     title: "Critical Care",
+  //     href: "/docs/primitives/hover-card",
+  //     icon: <GitCommitVerticalIcon className="h-5 w-5 text-green-600" />,
+  //   },
+  //   {
+  //     title: "Digital Instruments",
+  //     href: "/docs/primitives/progress",
+  //     icon: <FileDigit className="h-5 w-5 text-purple-600" />,
+  //   },
+  //   {
+  //     title: "Gauze Products",
+  //     href: "/docs/primitives/progress",
+  //     icon: <Bandage className="h-5 w-5 text-purple-600" />,
+  //   },
+  //   {
+  //     title: "Home and Personal Protection",
+  //     href: "/docs/primitives/progress",
+  //     icon: <HomeIcon className="h-5 w-5 text-purple-600" />,
+  //   },
+  //   {
+  //     title: "Home Patient care",
+  //     href: "/docs/primitives/progress",
+  //     icon: <PanelTopInactive className="h-5 w-5 text-purple-600" />,
+  //   },
+  //   {
+  //     title: "Laboratory Products",
+  //     href: "/docs/primitives/progress",
+  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
+  //   },
+  //   {
+  //     title: "Orthopaedic Supplies",
+  //     href: "/docs/primitives/progress",
+  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
+  //   },
+  //   {
+  //     title: "Pediatrician",
+  //     href: "/docs/primitives/progress",
+  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
+  //   },
+  //   {
+  //     title: "Surgical",
+  //     href: "/docs/primitives/progress",
+  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
+  //   },
+  //   {
+  //     title: "Surgical Sutures",
+  //     href: "/docs/primitives/progress",
+  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
+  //   },
+  //   {
+  //     title: "Syringe & Needles",
+  //     href: "/docs/primitives/progress",
+  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
+  //   },
+  //   {
+  //     title: "Urology",
+  //     href: "/docs/primitives/progress",
+  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
+  //   },
+  // ];
 
   const brands: { title: string; href: string; description: string }[] = [
     {
-      title: "Alert Dialog",
+      title: "Baby Products",
       href: "/docs/primitives/alert-dialog",
       description:
         "A modal dialog that interrupts the user with important content and expects a response.",
     },
     {
-      title: "Hover Card",
+      title: "Soft Toys",
       href: "/docs/primitives/hover-card",
       description:
         "For sighted users to preview content available behind a link.",
     },
     {
-      title: "Progress",
+      title: "Home Decor",
       href: "/docs/primitives/progress",
       description:
         "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
     },
     {
-      title: "Scroll-area",
+      title: "Electronics",
       href: "/docs/primitives/scroll-area",
-      description: "Visually or semantically separates content.",
+      description: 
+      "Visually or semantically separates content, typically displayed as a progress bar.",
     },
     {
       title: "Tabs",
@@ -157,108 +156,77 @@ export default async function Header() {
   return (
     <>
       {/* Top Navbar for Large Screens */}
-      <header className="fixed left-0 top-0 z-50 hidden w-full bg-white shadow-lg lg:block">
-        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-10 py-6">
+      <header className="fixed left-0 top-0 z-50 hidden w-full bg-background shadow-lg dark:bg-[#16181D] lg:block">
+        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
           {/* Left Side - Logo & Navigation */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-10">
             {/* Logo */}
-            <Link href={"/"}>
+            <Link href="/">
               <Image
                 width={60}
                 height={50}
                 src={Logo}
                 alt="logo"
-                className="w-8 sm:w-16"
+                className="w-10 sm:w-14"
               />
             </Link>
 
             {/* Navigation Links */}
-            <ul className="flex gap-0">
+            <ul className="flex items-center gap-6">
               <li>
-                <Link
-                  href="#"
-                  className="nav-link flex items-center gap-1 align-middle"
-                >
-                  {/* <LayoutGrid className="h-4 w-4" />
-                  <span className="text-sm font-semibold uppercase">
-                    Browse Categories
-                  </span> */}
-                  <NavigationMenu>
-                    <NavigationMenuList>
-                      <NavigationMenuItem>
-                        <NavigationMenuTrigger>
-                          <Link
-                            href={""}
-                            className="flex items-center gap-1 align-middle"
-                          >
-                            <LayoutGrid className="h-4 w-4" />
-                            <span className="text-sm font-semibold uppercase">
-                              Browse Categories
-                            </span>
-                          </Link>
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          <ul className="grid gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[650px]">
-                            {components.map((component) => (
-                              <Link
-                                key={component.title}
-                                title={component.title}
-                                href={component.href}
-                                className="ml-10"
-                              >
-                                <div className="flex items-center gap-2">
-                                  {component.icon} {/* Display icon */}
-                                  <span>{component.title}</span>
-                                </div>
-                              </Link>
-                            ))}
-                          </ul>
-                        </NavigationMenuContent>
-                      </NavigationMenuItem>
-                    </NavigationMenuList>
-                  </NavigationMenu>
-                </Link>
+                <NavigationMenu>
+                  <NavigationMenuList>
+                    <NavigationMenuItem>
+                      <NavigationMenuTrigger className="flex items-center gap-2 hover:bg-transparent focus:bg-transparent">
+                        <LayoutGrid className="h-5 w-5 text-gray-800 dark:text-white" />
+                        <span className="text-[15px] font-medium uppercase text-gray-800 dark:text-white">
+                          Browse Categories
+                        </span>
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[700px]">
+                          {brands.map((component) => (
+                            <ListItem
+                              key={component.title}
+                              title={component.title}
+                              href={component.href}
+                            >
+                              {component.description}
+                            </ListItem>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
               </li>
+
               <li>
-                <Link
-                  href="#"
-                  className="nav-link flex items-center gap-1 align-middle"
-                >
-                  {/* <LayoutGrid className="h-4 w-4" />
-                  <span className="text-sm font-semibold uppercase">
-                    Browse Categories
-                  </span> */}
-                  <NavigationMenu>
-                    <NavigationMenuList>
-                      <NavigationMenuItem>
-                        <NavigationMenuTrigger>
-                          <Link
-                            href={""}
-                            className="flex items-center gap-1 align-middle"
-                          >
-                            <CodesandboxIcon className="h-4 w-4" />
-                            <span className="text-sm font-semibold uppercase">
-                              Popular Brands
-                            </span>
-                          </Link>
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[700px]">
-                            {brands.map((component) => (
-                              <ListItem
-                                key={component.title}
-                                title={component.title}
-                                href={component.href}
-                              >
-                                {component.description}
-                              </ListItem>
-                            ))}
-                          </ul>
-                        </NavigationMenuContent>
-                      </NavigationMenuItem>
-                    </NavigationMenuList>
-                  </NavigationMenu>
-                </Link>
+                <NavigationMenu>
+                  <NavigationMenuList>
+                    <NavigationMenuItem>
+                      <NavigationMenuTrigger className="flex items-center gap-2 hover:bg-transparent focus:bg-transparent">
+                        <CodesandboxIcon className="h-5 w-5 text-gray-800 dark:text-white" />
+                        <span className="text-[15px] font-medium uppercase text-gray-800 dark:text-white">
+                          Popular Brands
+                        </span>
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent>
+                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[700px]">
+                          {brands.map((component) => (
+                            <ListItem
+                              key={component.title}
+                              title={component.title}
+                              href={component.href}
+                            >
+                              {component.description}
+                            </ListItem>
+                          ))}
+                        </ul>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
               </li>
             </ul>
           </div>
@@ -268,34 +236,19 @@ export default async function Header() {
             <input
               type="text"
               placeholder="Search for products, brands..."
-              className="w-full rounded-full border border-gray-300 px-5 py-2 pl-12 text-sm shadow-sm transition-all duration-200 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+              className="w-full rounded-full border border-gray-300 bg-white px-5 py-2.5 pl-12 text-sm text-gray-800 shadow-sm transition-all duration-200 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-gray-700 dark:bg-[#1e2025] dark:text-white dark:placeholder:text-gray-400"
             />
             <Search
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400"
               size={20}
             />
           </div>
 
           {/* Right Side - Icons */}
-          <div className="flex items-center gap-3">
-            {/* <div className="relative">
-              <a href="#" className="flex flex-col items-center text-gray-700">
-                <ShoppingCart className="h-6 w-8" />
-              </a>
-              {totalQuantity > 0 && (
-                <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">
-                  {totalQuantity}
-                </span>
-              )}
-            </div> */}
+          <div className="flex items-center gap-4">
             <ShoppingCartButton initialData={cart} />
+            <UserButton />
             <ProfileIcon />
-            {/* <a href="#" className="">
-              <Image src={whatsapp} alt="whatsapp" width={35} height={50} />
-            </a> */}
-            <div className="flex w-6">
-              <SunIcon className="" />
-            </div>
           </div>
         </nav>
       </header>
