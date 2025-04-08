@@ -1,18 +1,5 @@
 import * as React from "react";
-import {
-  Home,
-  User,
-  LayoutGrid,
-  // ShoppingCart,
-  CodesandboxIcon,
-  // Baby,
-  // GitCommitVerticalIcon,
-  // MusicIcon,
-  // Bandage,
-  // FileDigit,
-  // HomeIcon,
-  // PanelTopInactive,
-} from "lucide-react";
+import { Home, User, LayoutGrid, CodesandboxIcon } from "lucide-react";
 import Image from "next/image";
 import Logo from "../assets/fluffmagic.png";
 import { Search } from "lucide-react";
@@ -25,7 +12,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  // navigationMenuTriggerStyle,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import whatsapp from "../assets/whatsapp.png";
 import ProfileIcon from "@/components/_components/ProfileIcon";
@@ -34,6 +21,7 @@ import { getCart } from "@/wix-api/cart";
 import ShoppingCartButton from "./ShoppingCartButton";
 import { getWixServerClient } from "@/lib/wix-client.server";
 import UserButton from "@/components/_components/UserButton";
+import { getCollections } from "@/wix-api/collections";
 // interface ComponentItem {
 //   title: string;
 //   href: string;
@@ -132,8 +120,8 @@ export default async function Header() {
     {
       title: "Electronics",
       href: "/docs/primitives/scroll-area",
-      description: 
-      "Visually or semantically separates content, typically displayed as a progress bar.",
+      description:
+        "Visually or semantically separates content, typically displayed as a progress bar.",
     },
     {
       title: "Tabs",
@@ -150,6 +138,16 @@ export default async function Header() {
   ];
 
   const cart = await getCart(await getWixServerClient());
+  const collections = await getCollections(await getWixServerClient());
+
+  console.log(collections);
+
+  // const [cart, loggedInMember, collections] = await Promise.all([
+  //   getCart(wixClient),
+  //   getLoggedInMember(wixClient),
+  //   getCollections(wixClient),
+  // ]);
+
   // const totalQuantity =
   //   cart?.lineItems.reduce((acc, item) => acc + (item.quantity || 0), 0) || 0;
 
@@ -157,7 +155,7 @@ export default async function Header() {
     <>
       {/* Top Navbar for Large Screens */}
       <header className="fixed left-0 top-0 z-50 hidden w-full bg-background shadow-lg dark:bg-[#16181D] lg:block">
-        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
+        <nav className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-8">
           {/* Left Side - Logo & Navigation */}
           <div className="flex items-center gap-10">
             {/* Logo */}
@@ -167,13 +165,13 @@ export default async function Header() {
                 height={50}
                 src={Logo}
                 alt="logo"
-                className="w-10 sm:w-14"
+                className="w-10 sm:w-16"
               />
             </Link>
 
             {/* Navigation Links */}
             <ul className="flex items-center gap-6">
-              <li>
+              <li className=" mt-1">
                 <NavigationMenu>
                   <NavigationMenuList>
                     <NavigationMenuItem>
@@ -184,15 +182,24 @@ export default async function Header() {
                         </span>
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[700px]">
-                          {brands.map((component) => (
-                            <ListItem
-                              key={component.title}
-                              title={component.title}
-                              href={component.href}
-                            >
-                              {component.description}
-                            </ListItem>
+                        <ul className="dark:bg-[#16181D grid w-[235px] gap-3 p-4">
+                          {collections.map((collection) => (
+                            <li key={collection._id}>
+                              <Link
+                                href={`/collections/${collection.slug}`}
+                                legacyBehavior
+                                passHref
+                              >
+                                <NavigationMenuLink
+                                  className={cn(
+                                    navigationMenuTriggerStyle(),
+                                    "w-full justify-start whitespace-nowrap",
+                                  )}
+                                >
+                                  {collection.name}
+                                </NavigationMenuLink>
+                              </Link>
+                            </li>
                           ))}
                         </ul>
                       </NavigationMenuContent>
@@ -201,7 +208,7 @@ export default async function Header() {
                 </NavigationMenu>
               </li>
 
-              <li>
+              <li className=" mt-1">
                 <NavigationMenu>
                   <NavigationMenuList>
                     <NavigationMenuItem>
