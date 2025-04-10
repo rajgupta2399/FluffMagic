@@ -5,23 +5,11 @@ import { WIX_SESSION_COOKIE } from "./constant";
 import { getWixClient } from "./wix-client.base";
 
 // Function to retrieve tokens from cookies
-// export const getWixServerClient = cache(async () => {  // Make async
-//   let tokens: Tokens | undefined;
-
-//   try {
-//     const cookieStore = await cookies();  // Add await
-//     tokens = JSON.parse(cookieStore.get(WIX_SESSION_COOKIE)?.value || "{}");
-//   } catch (error) {
-//     console.error("Error parsing cookies:", error);
-//   }
-
-//   return getWixClient(tokens);
-// });
-export const getWixServerClient = cache(() => {
+export const getWixServerClient = cache(async () => {  // Make async
   let tokens: Tokens | undefined;
 
   try {
-    const cookieStore = cookies(); // Assuming this is sync in your framework
+    const cookieStore = await cookies();  // Add await
     tokens = JSON.parse(cookieStore.get(WIX_SESSION_COOKIE)?.value || "{}");
   } catch (error) {
     console.error("Error parsing cookies:", error);
@@ -29,6 +17,20 @@ export const getWixServerClient = cache(() => {
 
   return getWixClient(tokens);
 });
+
+
+// export const getWixServerClient = cache(() => {
+//   let tokens: Tokens | undefined;
+
+//   try {
+//     const cookieStore = cookies(); // Assuming this is sync in your framework
+//     tokens = JSON.parse(cookieStore.get(WIX_SESSION_COOKIE)?.value || "{}");
+//   } catch (error) {
+//     console.error("Error parsing cookies:", error);
+//   }
+
+//   return getWixClient(tokens);
+// });
 
 // Cached function for Wix client
 // // import { env } from "@/env";

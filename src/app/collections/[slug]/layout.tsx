@@ -1,10 +1,10 @@
 import { Skeleton } from "@/components/ui/skeleton";
 import WixImage from "@/components/_components/WixImage";
 import { cn } from "@/lib/utils";
+import { getWixServerClient } from "@/lib/wix-client.server";
 import { getCollectionBySlug } from "@/wix-api/collections";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { getWixServerClient } from "@/lib/wix-client.server";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -20,7 +20,10 @@ export default function Layout({ children, params }: LayoutProps) {
 }
 
 async function CollectionsLayout({ children, params: { slug } }: LayoutProps) {
-  const collection = await getCollectionBySlug(getWixServerClient(), slug);
+  // const collection = await getCollectionBySlug(getWixServerClient(), slug);
+
+  const wixClient = await getWixServerClient();
+  const collection = await getCollectionBySlug(wixClient, slug);
 
   if (!collection) notFound();
 
