@@ -2,7 +2,7 @@
 import { cache } from "react";
 import { WixClient } from "@/lib/wix-client.base";
 
-type ProductsSort = "last_updated" | "price_asc" | "price_desc";
+export type ProductsSort = "last_updated" | "price_asc" | "price_desc";
 interface QueryProductsFilter {
   q?: string;
   collectionIds?: string[] | string;

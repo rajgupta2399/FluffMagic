@@ -2,7 +2,6 @@ import * as React from "react";
 import { Home, User, LayoutGrid, CodesandboxIcon } from "lucide-react";
 import Image from "next/image";
 import Logo from "../assets/fluffmagic.png";
-import { Search } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
@@ -22,6 +21,7 @@ import ShoppingCartButton from "./ShoppingCartButton";
 import { getWixServerClient } from "@/lib/wix-client.server";
 import UserButton from "@/components/_components/UserButton";
 import { getCollections } from "@/wix-api/collections";
+import SearchField from "@/components/_components/SearchField";
 // interface ComponentItem {
 //   title: string;
 //   href: string;
@@ -171,7 +171,7 @@ export default async function Header() {
 
             {/* Navigation Links */}
             <ul className="flex items-center gap-6">
-              <li className=" mt-1">
+              <li className="mt-1">
                 <NavigationMenu>
                   <NavigationMenuList>
                     <NavigationMenuItem>
@@ -208,7 +208,7 @@ export default async function Header() {
                 </NavigationMenu>
               </li>
 
-              <li className=" mt-1">
+              <li className="mt-1">
                 <NavigationMenu>
                   <NavigationMenuList>
                     <NavigationMenuItem>
@@ -240,15 +240,7 @@ export default async function Header() {
 
           {/* Center - Search Bar */}
           <div className="relative w-1/3">
-            <input
-              type="text"
-              placeholder="Search for products, brands..."
-              className="w-full rounded-full border border-gray-300 bg-white px-5 py-2.5 pl-12 text-sm text-gray-800 shadow-sm transition-all duration-200 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-gray-700 dark:bg-[#1e2025] dark:text-white dark:placeholder:text-gray-400"
-            />
-            <Search
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400"
-              size={20}
-            />
+            <SearchField className="max-w-96" />
           </div>
 
           {/* Right Side - Icons */}
