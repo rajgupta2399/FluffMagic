@@ -73,7 +73,6 @@ async function ProductResults({
   const pageSize = 8;
 
   const wixClient = await getWixServerClient();
-
   const products = await queryProducts(wixClient, {
     q,
     limit: pageSize,
@@ -83,6 +82,8 @@ async function ProductResults({
     priceMax,
     sort,
   });
+
+  console.log(products);
 
   if (page > (products.totalPages || 1)) notFound();
 

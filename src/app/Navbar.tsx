@@ -182,7 +182,7 @@ export default async function Header() {
                         </span>
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="dark:bg-[#16181D grid w-[235px] gap-3 p-4">
+                        {/* <ul className="dark:bg-[#16181D grid w-[235px] gap-3 p-4">
                           {collections.map((collection) => (
                             <li key={collection._id}>
                               <Link
@@ -201,14 +201,14 @@ export default async function Header() {
                               </Link>
                             </li>
                           ))}
-                        </ul>
+                        </ul> */}
                       </NavigationMenuContent>
                     </NavigationMenuItem>
                   </NavigationMenuList>
                 </NavigationMenu>
               </li>
 
-              <li className="mt-1">
+              {/* <li className="mt-1">
                 <NavigationMenu>
                   <NavigationMenuList>
                     <NavigationMenuItem>
@@ -234,14 +234,20 @@ export default async function Header() {
                     </NavigationMenuItem>
                   </NavigationMenuList>
                 </NavigationMenu>
+              </li> */}
+
+              <li>
+                <Link href="/shop" className="font-semibold hover:underline">
+                  Shop
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Center - Search Bar */}
-          <div className="relative w-1/3">
-            <SearchField className="max-w-96" />
-          </div>
+          {/* <div className="relative w-1/3"> */}
+          <SearchField className="max-w-96" />
+          {/* </div> */}
 
           {/* Right Side - Icons */}
           <div className="flex items-center gap-4">
