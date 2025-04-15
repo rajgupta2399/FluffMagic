@@ -29,6 +29,7 @@ import { getCollectionBySlug } from "@/wix-api/collections";
 import { queryProducts } from "@/wix-api/products";
 import HomeDecorSection from "@/components/_components/HomeComponentSection/HomeDecorSection";
 import { getWixServerClient } from "@/lib/wix-client.server";
+import SoftToysCombosSection from "@/components/_components/HomeComponentSection/SoftToysCombosSection";
 
 export default function Home() {
   return (
@@ -41,16 +42,25 @@ export default function Home() {
           <FeaturedProducts />
         </Suspense>
         <Suspense fallback={""}>
+          <SoftToysSection />
+        </Suspense>
+        <div className="pt-0">
+          <hr className="" />
+        </div>
+        <Suspense fallback={""}>
           <BabyProductsSection />
         </Suspense>
         <div className="pt-0">
           <hr className="" />
         </div>
         <Suspense fallback={""}>
-          <SoftToysSection />
-        </Suspense>
-        <Suspense fallback={""}>
           <HomeDecorSection />
+        </Suspense>
+        <div className="pt-0">
+          <hr className="" />
+        </div>
+        <Suspense fallback={""}>
+          <SoftToysCombosSection />
         </Suspense>
         <div className="pt-0">
           <hr className="" />
@@ -103,7 +113,7 @@ async function FeaturedProducts() {
                 key={product._id}
                 className="basis-1/2 md:basis-1/3 lg:basis-1/5"
               >
-                <div className="h-full rounded-lg border p-1 bg-white dark:bg-[#16181D] ">
+                <div className="h-full rounded-lg border bg-white p-1 dark:bg-[#16181D]">
                   <Product product={product} />
                 </div>
               </CarouselItem>
@@ -111,8 +121,8 @@ async function FeaturedProducts() {
           </CarouselContent>
 
           {/* Make sure buttons are visible and positioned */}
-          <CarouselPrevious className="absolute top-1/2 z-10 -translate-y-1/2 sm:left-0 bg-white dark:bg-[#16181D] " />
-          <CarouselNext className="absolute top-1/2 z-10 -translate-y-1/2 sm:right-0  bg-white dark:bg-[#16181D] " />
+          <CarouselPrevious className="absolute top-1/2 z-10 -translate-y-1/2 bg-white dark:bg-[#16181D] sm:left-0" />
+          <CarouselNext className="absolute top-1/2 z-10 -translate-y-1/2 bg-white dark:bg-[#16181D] sm:right-0" />
         </Carousel>
       </div>
 

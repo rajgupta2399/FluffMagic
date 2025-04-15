@@ -12,12 +12,11 @@ import ProductSection from "./ProductSection";
 import Autoplay from "embla-carousel-autoplay";
 // import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
 import { ProductsQueryResult } from "@wix/auto_sdk_stores_products";
-
-import BabyToysBanner1 from "../../../assets/babyProductsBanner1.png";
-import BabyToysBanner2 from "../../../assets/babyProductsBanner2.png";
-import BabyToysBanner3 from "../../../assets/babyProductsSquare.png";
 import Image from "next/image";
 import Link from "next/link";
+import SoftToyBanner1 from "../../../assets/softToysBanner1.png";
+import SoftToyBanner3 from "../../../assets/softToysSquare.png";
+import SoftToyBanner2 from "../../../assets/softToysBanner2.png";
 import { ChevronRight } from "lucide-react";
 // import { ChevronRight } from "lucide-react";
 
@@ -28,10 +27,9 @@ function ProductSkeleton() {
   );
 }
 
-export default function BabyProductsSection() {
-  const [babyProducts, setBabyProducts] = useState<ProductsQueryResult | null>(
-    null,
-  );
+export default function SoftToysCombosSection() {
+  const [softToysProduct, setSoftToysProduct] =
+    useState<ProductsQueryResult | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -57,7 +55,7 @@ export default function BabyProductsSection() {
           .descending("lastUpdated")
           .find();
 
-        setBabyProducts(products);
+        setSoftToysProduct(products);
       } catch (error) {
         console.error("Error fetching digital instruments: ", error);
       } finally {
@@ -68,45 +66,19 @@ export default function BabyProductsSection() {
     fetchProducts();
   }, []);
 
-  // if (loading) {
-  //   return (
-  //     <div className="relative space-y-3 overflow-hidden">
-  //       <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
-  //         Baby Products
-  //       </h2>
-
-  //       <div className="relative mx-auto w-full max-w-screen-xl">
-  //         <Carousel className="w-full">
-  //           <CarouselContent className="flex">
-  //             {[...Array(5)].map((_, index) => (
-  //               <CarouselItem
-  //                 key={index}
-  //                 className="basis-1/2 md:basis-1/3 lg:basis-1/5"
-  //               >
-  //                 <ProductSkeleton />
-  //               </CarouselItem>
-  //             ))}
-  //           </CarouselContent>
-  //         </Carousel>
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
   if (loading) {
     return (
       <div className="relative space-y-3 overflow-hidden">
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
-          Baby Products
+          Soft Toys Combos
         </h2>
         <div className="flex w-full">
           {/* Skeleton for Banner 1 */}
           <div className="digitalInstrumentBanner1 w-full sm:w-1/2 sm:pr-4">
             <div className="h-80 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
           </div>
-
           {/* Skeleton for Banner 2 */}
-          <div className="hidden w-1/2 sm:block">
+          <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
             <div className="di1 flex space-x-4 pt-1">
               <div className="h-36 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
             </div>
@@ -115,7 +87,6 @@ export default function BabyProductsSection() {
             </div>
           </div>
         </div>
-
         <div className="relative mx-auto w-full max-w-screen-xl">
           <Carousel className="w-full">
             <CarouselContent className="flex">
@@ -134,16 +105,16 @@ export default function BabyProductsSection() {
     );
   }
 
-  if (!babyProducts?.items?.length) return null;
+  if (!softToysProduct?.items?.length) return null;
 
   return (
     <div className="relative space-y-4 overflow-hidden py-2">
-      <div className="flex items-center justify-between border-b pb-2">
+      <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
-          Baby Products
+          Soft Toys Combos
         </h2>
         <Link
-          href="/collections/baby-products"
+          href="/collections/soft-toys"
           className="-mb-6 flex items-center space-x-2 text-sm font-semibold transition-all duration-300 hover:translate-x-1 hover:text-[#fd9aac]"
         >
           <span>See All</span>
@@ -153,9 +124,9 @@ export default function BabyProductsSection() {
 
       <div className="digitalInstrument flex w-full">
         <div className="digitalInstrumentBanner1 pr-0 sm:w-1/2 sm:pr-4">
-          <Link href={"/collections/baby-products"}>
+          <Link href={"/collections/soft-toys"}>
             <Image
-              src={BabyToysBanner3}
+              src={SoftToyBanner3}
               alt="digitalInstrument Banner"
               width={0}
               unoptimized
@@ -165,10 +136,10 @@ export default function BabyProductsSection() {
           </Link>
         </div>
         <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
-          <div className="di1 flex space-x-4 pt-1">
-            <Link href={"/collections/baby-products"} className="w-full">
+          <div className="di1 flex space-x-4 pt-1.5">
+            <Link href={"/collections/soft-toys"} className="w-full">
               <Image
-                src={BabyToysBanner1}
+                src={SoftToyBanner1}
                 alt="digitalInstrument Banner"
                 width={200}
                 unoptimized
@@ -176,11 +147,20 @@ export default function BabyProductsSection() {
                 className="w-full rounded-lg"
               />
             </Link>
+            {/* <Link href={"/collections/soft-toys"} className="w-full">
+              <Image
+                src={DI3}
+                alt="digitalInstrument Banner"
+                width={0}
+                height={0}
+                className="w-full rounded-lg"
+              />
+            </Link> */}
           </div>
           <div className="di2 mt-4 flex space-x-4">
-            <Link href={"/collections/baby-products"} className="w-full">
+            <Link href={"/collections/soft-toys"} className="w-full">
               <Image
-                src={BabyToysBanner2}
+                src={SoftToyBanner2}
                 alt="digitalInstrument Banner"
                 width={0}
                 unoptimized
@@ -188,6 +168,15 @@ export default function BabyProductsSection() {
                 className="w-full rounded-lg"
               />
             </Link>
+            {/* <Link href={"/collections/soft-toys"} className="w-full">
+              <Image
+                src={DI4}
+                alt="digitalInstrument Banner"
+                width={0}
+                height={0}
+                className="w-full rounded-lg"
+              />
+            </Link> */}
           </div>
         </div>
       </div>
@@ -202,7 +191,7 @@ export default function BabyProductsSection() {
           className="w-full"
         >
           <CarouselContent className="flex">
-            {babyProducts.items.map((product) => (
+            {softToysProduct.items.map((product) => (
               <CarouselItem
                 key={product._id!} // Using non-null assertion if sure _id exists
                 className="basis-1/2 md:basis-1/3 lg:basis-1/5"

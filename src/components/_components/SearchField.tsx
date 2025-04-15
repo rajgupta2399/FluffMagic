@@ -10,9 +10,9 @@ interface SearchFieldProps {
   placeholder?: string; // Add placeholder prop
 }
 
-export default function SearchField({ 
+export default function SearchField({
   className,
-  placeholder = "Search for products, brands..." // Default placeholder
+  placeholder = "Search for products, brands...", // Default placeholder
 }: SearchFieldProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -27,26 +27,26 @@ export default function SearchField({
   }
 
   return (
-    <form 
+    <form
       onSubmit={handleSubmit}
-      className={cn("grow", className)}
-      role="search" // Add ARIA role
+      className={cn("mx-auto w-full max-w-md", className)} // Centered & width control
+      role="search"
     >
       <div className="relative">
         <Input
           name="q"
-          type="search" // Use proper input type
+          type="search"
           defaultValue={currentQuery}
-          placeholder={placeholder}
-          className="w-full rounded-full border border-gray-300 bg-white px-5 py-2.5 pl-12 text-sm text-gray-800 shadow-sm transition-all duration-200 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:border-gray-700 dark:bg-[#1e2025] dark:text-white dark:placeholder:text-gray-400"
-          aria-label="Search products" // Accessibility improvement
+          placeholder={placeholder ?? "Search products..."}
+          aria-label="Search products"
+          className="w-full rounded-full border border-gray-300 bg-white px-5 py-3 pl-12 text-sm text-gray-900 shadow-md transition-all duration-300 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-200 dark:border-gray-700 dark:bg-[#1f1f23] dark:text-white dark:placeholder:text-gray-400 dark:focus:ring-blue-500"
         />
         <button
           type="submit"
-          className="absolute right-3 top-1/2 -translate-y-1/2 transform"
+          className="absolute left-4 top-1/2 -translate-y-1/2 transform text-gray-500 hover:text-blue-600 focus:outline-none"
           aria-label="Submit search"
         >
-          <SearchIcon className="size-5 text-muted-foreground" />
+          <SearchIcon className="h-5 w-5" />
         </button>
       </div>
     </form>

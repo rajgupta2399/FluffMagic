@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Home, User, LayoutGrid, CodesandboxIcon } from "lucide-react";
+import { Home, User, LayoutGrid } from "lucide-react";
 import Image from "next/image";
 import Logo from "../assets/fluffmagic.png";
 import Link from "next/link";
@@ -98,45 +98,6 @@ export default async function Header() {
   //   },
   // ];
 
-  const brands: { title: string; href: string; description: string }[] = [
-    {
-      title: "Baby Products",
-      href: "/docs/primitives/alert-dialog",
-      description:
-        "A modal dialog that interrupts the user with important content and expects a response.",
-    },
-    {
-      title: "Soft Toys",
-      href: "/docs/primitives/hover-card",
-      description:
-        "For sighted users to preview content available behind a link.",
-    },
-    {
-      title: "Home Decor",
-      href: "/docs/primitives/progress",
-      description:
-        "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-    },
-    {
-      title: "Electronics",
-      href: "/docs/primitives/scroll-area",
-      description:
-        "Visually or semantically separates content, typically displayed as a progress bar.",
-    },
-    {
-      title: "Tabs",
-      href: "/docs/primitives/tabs",
-      description:
-        "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-    },
-    {
-      title: "Tooltip",
-      href: "/docs/primitives/tooltip",
-      description:
-        "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-    },
-  ];
-
   const cart = await getCart(await getWixServerClient());
   const collections = await getCollections(await getWixServerClient());
 
@@ -155,7 +116,7 @@ export default async function Header() {
     <>
       {/* Top Navbar for Large Screens */}
       <header className="fixed left-0 top-0 z-50 hidden w-full bg-background shadow-lg dark:bg-[#16181D] lg:block">
-        <nav className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-8">
+        <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-8">
           {/* Left Side - Logo & Navigation */}
           <div className="flex items-center gap-10">
             {/* Logo */}
@@ -165,7 +126,7 @@ export default async function Header() {
                 height={50}
                 src={Logo}
                 alt="logo"
-                className="w-10 sm:w-16"
+                className="w-10 sm:w-14"
               />
             </Link>
 
@@ -182,7 +143,7 @@ export default async function Header() {
                         </span>
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        {/* <ul className="dark:bg-[#16181D grid w-[235px] gap-3 p-4">
+                        <ul className="dark:bg-[#16181D grid w-[235px] gap-3 p-4">
                           {collections.map((collection) => (
                             <li key={collection._id}>
                               <Link
@@ -201,45 +162,23 @@ export default async function Header() {
                               </Link>
                             </li>
                           ))}
-                        </ul> */}
+                        </ul>
                       </NavigationMenuContent>
                     </NavigationMenuItem>
                   </NavigationMenuList>
                 </NavigationMenu>
               </li>
 
-              {/* <li className="mt-1">
+              <li className="mt-1">
                 <NavigationMenu>
                   <NavigationMenuList>
-                    <NavigationMenuItem>
-                      <NavigationMenuTrigger className="flex items-center gap-2 hover:bg-transparent focus:bg-transparent">
-                        <CodesandboxIcon className="h-5 w-5 text-gray-800 dark:text-white" />
-                        <span className="text-[15px] font-medium uppercase text-gray-800 dark:text-white">
-                          Popular Brands
-                        </span>
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[700px]">
-                          {brands.map((component) => (
-                            <ListItem
-                              key={component.title}
-                              title={component.title}
-                              href={component.href}
-                            >
-                              {component.description}
-                            </ListItem>
-                          ))}
-                        </ul>
-                      </NavigationMenuContent>
+                    <NavigationMenuItem className="flex items-center gap-2 hover:bg-transparent focus:bg-transparent">
+                      <span className="text-[15px] font-medium uppercase text-gray-800 dark:text-white">
+                        <Link href="/shop">All Products</Link>
+                      </span>
                     </NavigationMenuItem>
                   </NavigationMenuList>
                 </NavigationMenu>
-              </li> */}
-
-              <li>
-                <Link href="/shop" className="font-semibold hover:underline">
-                  Shop
-                </Link>
               </li>
             </ul>
           </div>

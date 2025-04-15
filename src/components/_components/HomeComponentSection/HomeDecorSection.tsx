@@ -127,7 +127,7 @@ export default function HomeDecorSection() {
 
       <div className="digitalInstrument flex w-full">
         <div className="digitalInstrumentBanner1 pr-0 sm:w-1/2 sm:pr-4">
-          <Link href={"/home-decor"}>
+          <Link href={"/collections/home-decor"}>
             <Image
               src={HomeDecorBanner1}
               alt="digitalInstrument Banner"
@@ -140,7 +140,7 @@ export default function HomeDecorSection() {
         </div>
         <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
           <div className="di1 flex space-x-4 pt-1.5">
-            <Link href={"/home-decor"} className="w-full">
+            <Link href={"/collections/home-decor"} className="w-full">
               <Image
                 src={HomeDecorBanner2}
                 alt="digitalInstrument Banner"
@@ -150,7 +150,7 @@ export default function HomeDecorSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/home-decor"} className="w-full">
+            {/* <Link href={"/collections/home-decor"} className="w-full">
               <Image
                 src={DI3}
                 alt="digitalInstrument Banner"
@@ -161,7 +161,7 @@ export default function HomeDecorSection() {
             </Link> */}
           </div>
           <div className="di2 mt-4 flex space-x-4">
-            <Link href={"/home-decor"} className="w-full">
+            <Link href={"/collections/home-decor"} className="w-full">
               <Image
                 src={HomeDecorBanner3}
                 alt="digitalInstrument Banner"
@@ -171,7 +171,7 @@ export default function HomeDecorSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/home-decor"} className="w-full">
+            {/* <Link href={"/collections/home-decor"} className="w-full">
               <Image
                 src={DI4}
                 alt="digitalInstrument Banner"

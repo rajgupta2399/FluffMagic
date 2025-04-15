@@ -114,8 +114,8 @@ export default function SoftToysSection() {
           Soft Toys
         </h2>
         <Link
-          href="/baby-products"
-          className="flex items-center space-x-2 text-sm font-semibold transition-all duration-300 hover:translate-x-1 hover:text-[#fd9aac] -mb-6"
+          href="/collections/soft-toys"
+          className="-mb-6 flex items-center space-x-2 text-sm font-semibold transition-all duration-300 hover:translate-x-1 hover:text-[#fd9aac]"
         >
           <span>See All</span>
           <ChevronRight className="h-4 w-4" />
@@ -124,7 +124,7 @@ export default function SoftToysSection() {
 
       <div className="digitalInstrument flex w-full">
         <div className="digitalInstrumentBanner1 pr-0 sm:w-1/2 sm:pr-4">
-          <Link href={"/soft-toys"}>
+          <Link href={"/collections/soft-toys"}>
             <Image
               src={SoftToyBanner3}
               alt="digitalInstrument Banner"
@@ -137,7 +137,7 @@ export default function SoftToysSection() {
         </div>
         <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
           <div className="di1 flex space-x-4 pt-1.5">
-            <Link href={"/soft-toys"} className="w-full">
+            <Link href={"/collections/soft-toys"} className="w-full">
               <Image
                 src={SoftToyBanner1}
                 alt="digitalInstrument Banner"
@@ -147,7 +147,7 @@ export default function SoftToysSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/soft-toys"} className="w-full">
+            {/* <Link href={"/collections/soft-toys"} className="w-full">
               <Image
                 src={DI3}
                 alt="digitalInstrument Banner"
@@ -158,7 +158,7 @@ export default function SoftToysSection() {
             </Link> */}
           </div>
           <div className="di2 mt-4 flex space-x-4">
-            <Link href={"/soft-toys"} className="w-full">
+            <Link href={"/collections/soft-toys"} className="w-full">
               <Image
                 src={SoftToyBanner2}
                 alt="digitalInstrument Banner"
@@ -168,7 +168,7 @@ export default function SoftToysSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/soft-toys"} className="w-full">
+            {/* <Link href={"/collections/soft-toys"} className="w-full">
               <Image
                 src={DI4}
                 alt="digitalInstrument Banner"
@@ -196,7 +196,7 @@ export default function SoftToysSection() {
                 key={product._id!} // Using non-null assertion if sure _id exists
                 className="basis-1/2 md:basis-1/3 lg:basis-1/5"
               >
-                <div className="h-full rounded-lg border p-1 bg-white dark:bg-[#16181D] ">
+                <div className="h-full rounded-lg border bg-white p-1 dark:bg-[#16181D]">
                   <ProductSection product={product} />
                 </div>
               </CarouselItem>
