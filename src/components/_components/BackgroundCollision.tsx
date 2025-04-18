@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function FooterApp() {
   return (
-    <footer className="bg-white dark:bg-[#16181D] py-10 sm:pt-16 lg:pt-24 w-full">
+    <footer className="w-full bg-white py-10 dark:bg-[#16181D] sm:pt-16 lg:pt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-x-12 gap-y-16 md:col-span-3 lg:grid-cols-6">
           <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
@@ -17,12 +17,12 @@ export default function FooterApp() {
               supply sellers among the top surgical items providers in India.
             </p>
 
-            <ul className="mt-9 flex items-center space-x-3">
+            <ul className="mt-9 flex items-center space-x-3 dark:rounded-lg dark:bg-[#16181D] dark:p-3">
               <li>
                 <a
                   href="#"
                   title=""
-                  className="flex size-7 items-center justify-center rounded-full bg-foreground text-background transition-all duration-200 hover:bg-primary focus:bg-primary"
+                  className="flex size-7 items-center justify-center rounded-full bg-foreground text-background transition-all duration-200 hover:bg-primary focus:bg-primary dark:bg-[#2A2D35] dark:text-white"
                 >
                   <svg
                     className="h-4 w-4"
@@ -39,7 +39,7 @@ export default function FooterApp() {
                 <a
                   href="#"
                   title=""
-                  className="flex size-7 items-center justify-center rounded-full bg-foreground text-background transition-all duration-200 hover:bg-primary focus:bg-primary"
+                  className="flex size-7 items-center justify-center rounded-full bg-foreground text-background transition-all duration-200 hover:bg-primary focus:bg-primary dark:bg-[#2A2D35] dark:text-white"
                 >
                   <svg
                     className="h-4 w-4"
@@ -56,7 +56,7 @@ export default function FooterApp() {
                 <a
                   href="#"
                   title=""
-                  className="flex size-7 items-center justify-center rounded-full bg-foreground text-background transition-all duration-200 hover:bg-primary focus:bg-primary"
+                  className="flex size-7 items-center justify-center rounded-full bg-foreground text-background transition-all duration-200 hover:bg-primary focus:bg-primary dark:bg-[#2A2D35] dark:text-white"
                 >
                   <svg
                     className="h-4 w-4"
@@ -75,7 +75,7 @@ export default function FooterApp() {
                 <a
                   href="#"
                   title=""
-                  className="flex size-7 items-center justify-center rounded-full bg-foreground text-background transition-all duration-200 hover:bg-primary focus:bg-primary"
+                  className="flex size-7 items-center justify-center rounded-full bg-foreground text-background transition-all duration-200 hover:bg-primary focus:bg-primary dark:bg-[#2A2D35] dark:text-white"
                 >
                   <svg
                     className="h-4 w-4"

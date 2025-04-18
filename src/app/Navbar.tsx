@@ -155,7 +155,7 @@ export default async function Header() {
       <nav className="fixed bottom-0 left-0 z-50 w-full bg-background shadow-lg dark:bg-[#16181D] lg:hidden">
         <ul className="flex justify-around py-3">
           <li>
-            <Link href={""} className="flex flex-col items-center">
+            <Link href={"/"} className="flex flex-col items-center">
               <Home className="h-5 w-5" />
               <span className="text-xs font-semibold">Home</span>
             </Link>
