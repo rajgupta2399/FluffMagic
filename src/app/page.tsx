@@ -1,14 +1,7 @@
-// import { delay } from "@/lib/utils";
-// import banner from "../assets/banner1.webp";
-// import Image from "next/image";
+export const dynamic = 'force-dynamic';
 import { Suspense } from "react";
-// import { getWixClient } from "@/lib/wix-client.base";
 import Product from "@/components/_components/Product";
-// import { Skeleton } from "@/components/ui/skeleton";
 import * as React from "react";
-// import Autoplay from "embla-carousel-autoplay";
-
-// import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -17,12 +10,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Banners from "@/components/_components/Banners";
-// import SurgicalSection from "@/components/_components/HomeComponentSection/SurgicalSection";
-// import OrthopaedicSection from "@/components/_components/HomeComponentSection/OrthopaedicSection";
-// import GauzeSection from "@/components/_components/HomeComponentSection/GauzeProductsSection";
-// import BabyCareSection from "@/components/_components/HomeComponentSection/BabyCareSection";
-// import HomeAndPersonalSection from "@/components/_components/HomeComponentSection/HomePersonalSection";
-// import CriticalCareSection from "@/components/_components/HomeComponentSection/CriticalCareSection";
 import BabyProductsSection from "@/components/_components/HomeComponentSection/BabyProductsSection";
 import SoftToysSection from "@/components/_components/HomeComponentSection/SoftToysSection";
 import { getCollectionBySlug } from "@/wix-api/collections";

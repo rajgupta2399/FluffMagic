@@ -155,7 +155,7 @@ export default async function Header() {
         <ul className="flex justify-around py-3">
           <li>
             <Link
-              href={"/"}
+              href={""}
               className="flex flex-col items-center "
             >
               <Home className="h-5 w-5" />

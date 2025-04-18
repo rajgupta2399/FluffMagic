@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import PaginationBar from "@/components/_components/PaginationBar";
 import Product from "@/components/_components/Product";
 import { Skeleton } from "@/components/ui/skeleton";
