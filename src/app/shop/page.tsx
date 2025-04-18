@@ -34,11 +34,11 @@ export default async function Page({
     sort,
   },
 }: PageProps) {
-  const title = q ? `Results for "${q}"` : "Products";
+  const title = q ? `Results for "${q}"` : "All Products";
 
   return (
-    <div className="space-y-10">
-      <h1 className="text-center text-3xl font-bold md:text-4xl">{title}</h1>
+    <div className="-mt-5 space-y-2">
+      <h1 className="text-center text-xl font-bold md:text-xl">{title}</h1>
       <Suspense fallback={<LoadingSkeleton />} key={`${q}-${page}`}>
         <ProductResults
           q={q}
@@ -70,7 +70,7 @@ async function ProductResults({
   priceMax,
   sort,
 }: ProductResultsProps) {
-  const pageSize = 8;
+  const pageSize = 36;
 
   const wixClient = await getWixServerClient();
   const products = await queryProducts(wixClient, {
@@ -83,17 +83,15 @@ async function ProductResults({
     sort,
   });
 
-  console.log(products);
-
   if (page > (products.totalPages || 1)) notFound();
 
   return (
     <div className="space-y-10 group-has-[[data-pending]]:animate-pulse">
-      <p className="text-center text-xl">
+      <p className="text-md text-center">
         {products.totalCount}{" "}
         {products.totalCount === 1 ? "product" : "products"} found
       </p>
-      <div className="flex grid-cols-2 flex-col gap-5 sm:grid xl:grid-cols-3 2xl:grid-cols-4">
+      <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
         {products.items.map((product) => (
           <Product key={product._id} product={product} />
         ))}

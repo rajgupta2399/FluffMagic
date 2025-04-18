@@ -1,5 +1,6 @@
 "use client";
 
+import { Breadcrumb, BreadcrumbList } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -10,6 +11,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarInset,
+  SidebarProvider,
+  SidebarRail,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
 import { ProductsSort } from "@/wix-api/products";
 import { collections } from "@wix/stores";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -59,39 +69,57 @@ export default function SearchFilterLayout({
   }
 
   return (
-    <main className="group flex flex-col items-center justify-center gap-10 px-5 py-10 lg:flex-row lg:items-start">
-      <aside
-        className="h-fit space-y-5 lg:sticky lg:top-10 lg:w-64"
-        data-pending={isPending ? "" : undefined}
-      >
-        <CollectionsFilter
-          collections={collections}
-          selectedCollectionIds={optimisticFilters.collection}
-          updateCollectionIds={(collectionIds) =>
-            updateFilters({ collection: collectionIds })
-          }
-        />
-        <PriceFilter
-          minDefaultInput={optimisticFilters.price_min}
-          maxDefaultInput={optimisticFilters.price_max}
-          updatePriceRange={(priceMin, priceMax) =>
-            updateFilters({
-              price_min: priceMin,
-              price_max: priceMax,
-            })
-          }
-        />
-      </aside>
-      <div className="w-full max-w-7xl space-y-5">
-        <div className="flex justify-center lg:justify-end">
-          <SortFilter
-            sort={optimisticFilters.sort}
-            updateSort={(sort) => updateFilters({ sort })}
-          />
-        </div>
-        {children}
-      </div>
-    </main>
+    <div className="flex min-h-[calc(100vh-140px)] flex-col">
+      <SidebarProvider className="">
+        <Sidebar className="sm:sticky top-0 h-[calc(100vh-0px)] w-80 border-r">
+          <SidebarContent className="mt-3 h-full overflow-y-auto p-4">
+            <aside
+              className="h-fit space-y-5 lg:sticky lg:top-10 lg:w-64"
+              data-pending={isPending ? "" : undefined}
+            >
+              <CollectionsFilter
+                collections={collections}
+                selectedCollectionIds={optimisticFilters.collection}
+                updateCollectionIds={(collectionIds) =>
+                  updateFilters({ collection: collectionIds })
+                }
+              />
+              <PriceFilter
+                minDefaultInput={optimisticFilters.price_min}
+                maxDefaultInput={optimisticFilters.price_max}
+                updatePriceRange={(priceMin, priceMax) =>
+                  updateFilters({
+                    price_min: priceMin,
+                    price_max: priceMax,
+                  })
+                }
+              />
+            </aside>
+          </SidebarContent>
+          <SidebarRail />
+        </Sidebar>
+        <SidebarInset>
+          <header className="mt-10 flex h-16 shrink-0 items-center gap-2 border-b px-4">
+            <SidebarTrigger className="-ml-1" />
+            <Separator orientation="vertical" className="mr-2 h-4" />
+            <Breadcrumb>
+              <BreadcrumbList>
+                <div className="flex justify-center lg:justify-end">
+                  <SortFilter
+                    sort={optimisticFilters.sort}
+                    updateSort={(sort) => updateFilters({ sort })}
+                  />
+                </div>
+              </BreadcrumbList>
+            </Breadcrumb>
+          </header>
+
+          <main className="group flex flex-col items-center justify-center gap-10 px-5 py-10 lg:flex-row lg:items-start">
+            <div className="w-full max-w-7xl space-y-5">{children}</div>
+          </main>
+        </SidebarInset>
+      </SidebarProvider>
+    </div>
   );
 }
 

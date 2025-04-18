@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Home, User, LayoutGrid } from "lucide-react";
+import { Home, User, LayoutGrid, ReceiptText } from "lucide-react";
 import Image from "next/image";
 import Logo from "../assets/fluffmagic.png";
 import Link from "next/link";
@@ -13,7 +13,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import whatsapp from "../assets/whatsapp.png";
+// import whatsapp from "../assets/whatsapp.png";
 import ProfileIcon from "@/components/_components/ProfileIcon";
 // import { MoonIcon } from "@/components/_components/Icons/MoonIcon";
 import { getCart } from "@/wix-api/cart";
@@ -30,74 +30,6 @@ import SearchField from "@/components/_components/SearchField";
 // }
 
 export default async function Header() {
-  // const components: ComponentItem[] = [
-  //   {
-  //     title: "Baby Care",
-  //     href: "/baby-care",
-  //     icon: <Baby className="h-5 w-5 text-blue-600" />,
-  //   },
-  //   {
-  //     title: "Critical Care",
-  //     href: "/docs/primitives/hover-card",
-  //     icon: <GitCommitVerticalIcon className="h-5 w-5 text-green-600" />,
-  //   },
-  //   {
-  //     title: "Digital Instruments",
-  //     href: "/docs/primitives/progress",
-  //     icon: <FileDigit className="h-5 w-5 text-purple-600" />,
-  //   },
-  //   {
-  //     title: "Gauze Products",
-  //     href: "/docs/primitives/progress",
-  //     icon: <Bandage className="h-5 w-5 text-purple-600" />,
-  //   },
-  //   {
-  //     title: "Home and Personal Protection",
-  //     href: "/docs/primitives/progress",
-  //     icon: <HomeIcon className="h-5 w-5 text-purple-600" />,
-  //   },
-  //   {
-  //     title: "Home Patient care",
-  //     href: "/docs/primitives/progress",
-  //     icon: <PanelTopInactive className="h-5 w-5 text-purple-600" />,
-  //   },
-  //   {
-  //     title: "Laboratory Products",
-  //     href: "/docs/primitives/progress",
-  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-  //   },
-  //   {
-  //     title: "Orthopaedic Supplies",
-  //     href: "/docs/primitives/progress",
-  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-  //   },
-  //   {
-  //     title: "Pediatrician",
-  //     href: "/docs/primitives/progress",
-  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-  //   },
-  //   {
-  //     title: "Surgical",
-  //     href: "/docs/primitives/progress",
-  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-  //   },
-  //   {
-  //     title: "Surgical Sutures",
-  //     href: "/docs/primitives/progress",
-  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-  //   },
-  //   {
-  //     title: "Syringe & Needles",
-  //     href: "/docs/primitives/progress",
-  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-  //   },
-  //   {
-  //     title: "Urology",
-  //     href: "/docs/primitives/progress",
-  //     icon: <MusicIcon className="h-5 w-5 text-purple-600" />,
-  //   },
-  // ];
-
   const cart = await getCart(await getWixServerClient());
   const collections = await getCollections(await getWixServerClient());
 
@@ -198,7 +130,7 @@ export default async function Header() {
       </header>
 
       {/* Mobile Navigation (Logo + Menu Button) */}
-      <header className="fixed left-0 top-0 z-50 w-full bg-slate-50 shadow-lg lg:hidden">
+      <header className="fixed left-0 top-0 z-50 w-full bg-background shadow-lg dark:bg-[#16181D] lg:hidden">
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
           {/* Logo */}
           <Link href={"/"}>
@@ -208,9 +140,10 @@ export default async function Header() {
           <div className="flex items-center gap-3 align-middle">
             {/* In your mobile header */}
             <div className="flex items-center gap-3 align-middle">
-              <a href="#" className="">
+              {/* <a href="#" className="">
                 <Image src={whatsapp} alt="whatsapp" width={28} height={50} />
-              </a>
+              </a> */}
+              <UserButton />
               <ShoppingCartButton initialData={cart} />
             </div>
           </div>
@@ -218,32 +151,43 @@ export default async function Header() {
       </header>
 
       {/* Bottom Navigation Bar for Mobile */}
-      <nav className="fixed bottom-0 left-0 z-50 w-full bg-slate-50 shadow-lg lg:hidden">
+      <nav className="fixed bottom-0 left-0 z-50 w-full bg-background shadow-lg dark:bg-[#16181D] lg:hidden">
         <ul className="flex justify-around py-3">
           <li>
-            <a href="#" className="flex flex-col items-center text-gray-700">
+            <Link
+              href={"/"}
+              className="flex flex-col items-center "
+            >
               <Home className="h-5 w-5" />
               <span className="text-xs font-semibold">Home</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="flex flex-col items-center text-gray-700">
+            <Link
+              href={"/catgories"}
+              className="flex flex-col items-center "
+            >
               <LayoutGrid className="h-5 w-5" />
               <span className="text-xs font-semibold">Categories</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="flex flex-col items-center text-gray-700">
-              {/* <ShoppingCart className="h-5 w-5" /> */}
-              <ShoppingCartButton initialData={cart} />
-              <span className="text-xs font-semibold">Cart</span>
-            </a>
+            <Link
+              href={"/shop"}
+              className="flex flex-col items-center "
+            >
+              <ReceiptText className="h-5 w-5" />
+              <span className="text-xs font-semibold">Shop</span>
+            </Link>
           </li>
           <li>
-            <a href="#" className="flex flex-col items-center text-gray-700">
+            <Link
+              href={"/profile"}
+              className="flex flex-col items-center "
+            >
               <User className="h-5 w-5" />
               <span className="text-xs font-semibold">Profile</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

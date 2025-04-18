@@ -5,7 +5,6 @@ import { Footer } from "./Footer";
 import Header from "./Navbar";
 import ReactQueryProvider from "./ReactQueryProvider";
 import { Toaster } from "@/components/ui/toaster";
-
 import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({

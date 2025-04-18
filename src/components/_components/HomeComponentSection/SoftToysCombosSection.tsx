@@ -14,9 +14,9 @@ import Autoplay from "embla-carousel-autoplay";
 import { ProductsQueryResult } from "@wix/auto_sdk_stores_products";
 import Image from "next/image";
 import Link from "next/link";
-import SoftToyBanner1 from "../../../assets/softToysBanner1.png";
-import SoftToyBanner3 from "../../../assets/softToysSquare.png";
-import SoftToyBanner2 from "../../../assets/softToysBanner2.png";
+import SoftToyBanner1 from "../../../assets/Soft toys combo.png";
+import SoftToyBanner3 from "../../../assets/Combos.png";
+import SoftToyBanner2 from "../../../assets/Baby product combo.png";
 import { ChevronRight } from "lucide-react";
 // import { ChevronRight } from "lucide-react";
 
@@ -70,7 +70,7 @@ export default function SoftToysCombosSection() {
     return (
       <div className="relative space-y-3 overflow-hidden">
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
-          Soft Toys Combos
+          Combos
         </h2>
         <div className="flex w-full">
           {/* Skeleton for Banner 1 */}
@@ -111,10 +111,10 @@ export default function SoftToysCombosSection() {
     <div className="relative space-y-4 overflow-hidden py-2">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold sm:text-2xl sm:font-semibold">
-          Soft Toys Combos
+          Combos
         </h2>
         <Link
-          href="/collections/soft-toys"
+          href="/collections/soft-toys-combos-of-2"
           className="-mb-6 flex items-center space-x-2 text-sm font-semibold transition-all duration-300 hover:translate-x-1 hover:text-[#fd9aac]"
         >
           <span>See All</span>
@@ -124,7 +124,7 @@ export default function SoftToysCombosSection() {
 
       <div className="digitalInstrument flex w-full">
         <div className="digitalInstrumentBanner1 pr-0 sm:w-1/2 sm:pr-4">
-          <Link href={"/collections/soft-toys"}>
+          <Link href={"/collections/soft-toys-combos-of-2"}>
             <Image
               src={SoftToyBanner3}
               alt="digitalInstrument Banner"
@@ -137,7 +137,7 @@ export default function SoftToysCombosSection() {
         </div>
         <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
           <div className="di1 flex space-x-4 pt-1.5">
-            <Link href={"/collections/soft-toys"} className="w-full">
+            <Link href={"/collections/soft-toys-combos-of-2"} className="w-full">
               <Image
                 src={SoftToyBanner1}
                 alt="digitalInstrument Banner"
@@ -147,7 +147,7 @@ export default function SoftToysCombosSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/collections/soft-toys"} className="w-full">
+            {/* <Link href={"/collections/soft-toys-combos-of-2"} className="w-full">
               <Image
                 src={DI3}
                 alt="digitalInstrument Banner"
@@ -158,7 +158,7 @@ export default function SoftToysCombosSection() {
             </Link> */}
           </div>
           <div className="di2 mt-4 flex space-x-4">
-            <Link href={"/collections/soft-toys"} className="w-full">
+            <Link href={"/collections/soft-toys-combos-of-2"} className="w-full">
               <Image
                 src={SoftToyBanner2}
                 alt="digitalInstrument Banner"
@@ -168,7 +168,7 @@ export default function SoftToysCombosSection() {
                 className="w-full rounded-lg"
               />
             </Link>
-            {/* <Link href={"/collections/soft-toys"} className="w-full">
+            {/* <Link href={"/collections/soft-toys-combos-of-2"} className="w-full">
               <Image
                 src={DI4}
                 alt="digitalInstrument Banner"

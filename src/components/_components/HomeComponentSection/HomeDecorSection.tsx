@@ -45,7 +45,7 @@ export default function HomeDecorSection() {
           return;
         }
         const { collection } =
-          await wixClient.collections.getCollectionBySlug("all-products");
+          await wixClient.collections.getCollectionBySlug("home-decor");
 
         if (!collection?._id) {
           setLoading(false);

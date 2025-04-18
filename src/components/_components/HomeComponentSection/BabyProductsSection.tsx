@@ -44,7 +44,7 @@ export default function BabyProductsSection() {
           return;
         }
         const { collection } =
-          await wixClient.collections.getCollectionBySlug("all-products");
+          await wixClient.collections.getCollectionBySlug("baby-products");
 
         if (!collection?._id) {
           setLoading(false);
