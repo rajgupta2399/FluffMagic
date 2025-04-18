@@ -1,6 +1,6 @@
 import { formatCurrency } from "@/lib/utils";
 import { products } from "@wix/stores";
-import Link from "next/link";
+import {Link} from "next-view-transitions"
 import DiscountBadge from "../DiscountBadge";
 import WixImage from "../WixImage";
 import Badge from "../../ui/badge";

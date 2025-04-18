@@ -16,7 +16,7 @@ import {
 } from "@/hooks/cart";
 import { currentCart } from "@wix/ecom";
 import { Loader2, ShoppingCartIcon, X } from "lucide-react";
-import Link from "next/link";
+import {Link} from "next-view-transitions"
 import { useState } from "react";
 import CheckoutButton from "@/components/_components/CheckoutButton";
 

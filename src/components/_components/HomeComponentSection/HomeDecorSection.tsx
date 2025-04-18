@@ -13,15 +13,11 @@ import Autoplay from "embla-carousel-autoplay";
 // import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
 import { ProductsQueryResult } from "@wix/auto_sdk_stores_products";
 import Image from "next/image";
-import Link from "next/link";
-// import SoftToyBanner1 from "../../../assets/softToysBanner1.png";
-// import SoftToyBanner3 from "../../../assets/softToysSquare.png";
-// import SoftToyBanner2 from "../../../assets/softToysBanner2.png";
+import {Link} from "next-view-transitions"
 import HomeDecorBanner1 from "../../../assets/home decor products banner sqr.png"
 import HomeDecorBanner2 from "../../../assets/home decor banner reg 1.png"
 import HomeDecorBanner3 from "../../../assets/home decor products banner reg.png"
 import { ChevronRight } from "lucide-react";
-// import { ChevronRight } from "lucide-react";
 
 // Skeleton Loader for better UX
 function ProductSkeleton() {

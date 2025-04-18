@@ -2,7 +2,6 @@ import * as React from "react";
 import { Home, User, LayoutGrid, ReceiptText } from "lucide-react";
 import Image from "next/image";
 import Logo from "../assets/fluffmagic.png";
-// import Link from "next/link";
 import { Link } from "next-view-transitions";
 import { cn } from "@/lib/utils";
 import {
@@ -161,7 +160,7 @@ export default async function Header() {
             </Link>
           </li>
           <li>
-            <Link href={"/catgories"} className="flex flex-col items-center">
+            <Link href={"/categories"} className="flex flex-col items-center">
               <LayoutGrid className="h-5 w-5" />
               <span className="text-xs font-semibold">Categories</span>
             </Link>

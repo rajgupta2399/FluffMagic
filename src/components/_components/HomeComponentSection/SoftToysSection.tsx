@@ -13,7 +13,7 @@ import Autoplay from "embla-carousel-autoplay";
 // import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
 import { ProductsQueryResult } from "@wix/auto_sdk_stores_products";
 import Image from "next/image";
-import Link from "next/link";
+import {Link} from "next-view-transitions"
 import SoftToyBanner1 from "../../../assets/softToysBanner1.png";
 import SoftToyBanner3 from "../../../assets/softToysSquare.png";
 import SoftToyBanner2 from "../../../assets/softToysBanner2.png";

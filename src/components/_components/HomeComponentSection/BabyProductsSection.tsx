@@ -17,7 +17,7 @@ import BabyToysBanner1 from "../../../assets/babyProductsBanner1.png";
 import BabyToysBanner2 from "../../../assets/babyProductsBanner2.png";
 import BabyToysBanner3 from "../../../assets/babyProductsSquare.png";
 import Image from "next/image";
-import Link from "next/link";
+import {Link} from "next-view-transitions"
 import { ChevronRight } from "lucide-react";
 // import { ChevronRight } from "lucide-react";
 
