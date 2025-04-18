@@ -2,7 +2,8 @@ import * as React from "react";
 import { Home, User, LayoutGrid, ReceiptText } from "lucide-react";
 import Image from "next/image";
 import Logo from "../assets/fluffmagic.png";
-import Link from "next/link";
+// import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -77,12 +78,12 @@ export default async function Header() {
                       <NavigationMenuContent>
                         <ul className="dark:bg-[#16181D grid w-[235px] gap-3 p-4">
                           {collections.map((collection) => (
-                            <li key={collection._id}>
-                              <Link
-                                href={`/collections/${collection.slug}`}
-                                legacyBehavior
-                                passHref
-                              >
+                            <Link
+                              key={collection._id}
+                              href={`/collections/${collection.slug}`}
+                              passHref
+                            >
+                              <li>
                                 <NavigationMenuLink
                                   className={cn(
                                     navigationMenuTriggerStyle(),
@@ -91,8 +92,8 @@ export default async function Header() {
                                 >
                                   {collection.name}
                                 </NavigationMenuLink>
-                              </Link>
-                            </li>
+                              </li>
+                            </Link>
                           ))}
                         </ul>
                       </NavigationMenuContent>
@@ -154,37 +155,25 @@ export default async function Header() {
       <nav className="fixed bottom-0 left-0 z-50 w-full bg-background shadow-lg dark:bg-[#16181D] lg:hidden">
         <ul className="flex justify-around py-3">
           <li>
-            <Link
-              href={""}
-              className="flex flex-col items-center "
-            >
+            <Link href={""} className="flex flex-col items-center">
               <Home className="h-5 w-5" />
               <span className="text-xs font-semibold">Home</span>
             </Link>
           </li>
           <li>
-            <Link
-              href={"/catgories"}
-              className="flex flex-col items-center "
-            >
+            <Link href={"/catgories"} className="flex flex-col items-center">
               <LayoutGrid className="h-5 w-5" />
               <span className="text-xs font-semibold">Categories</span>
             </Link>
           </li>
           <li>
-            <Link
-              href={"/shop"}
-              className="flex flex-col items-center "
-            >
+            <Link href={"/shop"} className="flex flex-col items-center">
               <ReceiptText className="h-5 w-5" />
               <span className="text-xs font-semibold">Shop</span>
             </Link>
           </li>
           <li>
-            <Link
-              href={"/profile"}
-              className="flex flex-col items-center "
-            >
+            <Link href={"/profile"} className="flex flex-col items-center">
               <User className="h-5 w-5" />
               <span className="text-xs font-semibold">Profile</span>
             </Link>

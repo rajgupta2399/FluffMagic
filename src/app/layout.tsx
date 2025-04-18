@@ -6,6 +6,7 @@ import Header from "./Navbar";
 import ReactQueryProvider from "./ReactQueryProvider";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "next-themes";
+import { ViewTransitions } from "next-view-transitions";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,24 +31,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem={true}
-          disableTransitionOnChange
+    <ViewTransitions>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <ReactQueryProvider>
-            <Header />
-            {children}
-            <Footer />
-          </ReactQueryProvider>
-          <Toaster />
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem={true}
+            disableTransitionOnChange
+          >
+            <ReactQueryProvider>
+              <Header />
+              {children}
+              <Footer />
+            </ReactQueryProvider>
+            <Toaster />
+          </ThemeProvider>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }
