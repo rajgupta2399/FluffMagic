@@ -1,79 +1,115 @@
+"use client";
+
 import React from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { members } from "@wix/members";
+import { LogInIcon, LogOutIcon, UserIcon } from "lucide-react";
+import { useTheme } from "next-themes";
+import Link from "next/link";
+import useAuth from "@/hooks/auth";
+import { SunIcon } from "./Icons/SunIcon";
+import { MoonIcon } from "./Icons/MoonIcon";
 
-const ProfileIcon = () => {
+interface ProfileIconProps {
+  loggedInMember: members.Member | null;
+  className?: string;
+}
+
+const ProfileIcon = ({ loggedInMember }: ProfileIconProps) => {
+  const { login, logout } = useAuth();
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  // Function to format the user's display name
+  const getDisplayName = () => {
+    if (!loggedInMember) return "";
+    
+    const firstName = loggedInMember.contact?.firstName || "";
+    const lastName = loggedInMember.contact?.lastName || "";
+    
+    if (firstName && lastName) {
+      return `${firstName} ${lastName}`;
+    }
+    return firstName || lastName || loggedInMember.loginEmail;
+  };
+
+  // Function to get avatar fallback initials
+  const getAvatarInitials = () => {
+    if (!loggedInMember) return "U";
+    
+    const firstName = loggedInMember.contact?.firstName?.[0] || "";
+    const lastName = loggedInMember.contact?.lastName?.[0] || "";
+    
+    return `${firstName}${lastName}` || "U";
+  };
+
   return (
-    <div>
+    <div className="flex items-center gap-2">
+      <button
+        onClick={toggleTheme}
+        className="rounded-full p-2 hover:bg-gray-100 dark:bg-[#16181D]"
+      >
+        {theme === "light" ? (
+          <MoonIcon className="size-5" />
+        ) : (
+          <SunIcon className="size-5" />
+        )}
+      </button>
+
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-            <AvatarFallback>CN</AvatarFallback>
+          <Avatar className="cursor-pointer">
+            <AvatarImage
+              src={
+                loggedInMember?.profile?.photo?.url ||
+                "https://github.com/shadcn.png"
+              }
+              // alt={getDisplayName()}
+            />
+            <AvatarFallback>
+              {getAvatarInitials()}
+            </AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-52">
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup>
-            <DropdownMenuItem>
-              Profile
-              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+        <DropdownMenuContent className="w-48 dark:bg-[#16181D]">
+          {loggedInMember && (
+            <>
+              <DropdownMenuLabel className=" text-center">
+                {getDisplayName()}
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <Link href="/profile">
+                <DropdownMenuItem>
+                  <UserIcon className="mr-2 h-4 w-4 dark:bg-[#16181D]" />
+                  Profile
+                </DropdownMenuItem>
+              </Link>
+              <DropdownMenuSeparator />
+            </>
+          )}
+
+          {loggedInMember ? (
+            <DropdownMenuItem onClick={() => logout()}>
+              <LogOutIcon className="mr-2 h-4 w-4 dark:bg-[#16181D]" />
+              Log out
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              Billing
-              <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+          ) : (
+            <DropdownMenuItem onClick={() => login()}>
+              <LogInIcon className="mr-2 h-4 w-4 dark:bg-[#16181D]" />
+              Log in
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              Settings
-              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              Keyboard shortcuts
-              <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup>
-            <DropdownMenuItem>Team</DropdownMenuItem>
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  <DropdownMenuItem>Email</DropdownMenuItem>
-                  <DropdownMenuItem>Message</DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>More...</DropdownMenuItem>
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
-            <DropdownMenuItem>
-              New Team
-              <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>GitHub</DropdownMenuItem>
-          <DropdownMenuItem>Support</DropdownMenuItem>
-          <DropdownMenuItem disabled>API</DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>
-            Log out
-            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-          </DropdownMenuItem>
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

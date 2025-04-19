@@ -22,6 +22,7 @@ import { getWixServerClient } from "@/lib/wix-client.server";
 import UserButton from "@/components/_components/UserButton";
 import { getCollections } from "@/wix-api/collections";
 import SearchField from "@/components/_components/SearchField";
+import { getLoggedInMember } from "@/wix-api/members";
 // interface ComponentItem {
 //   title: string;
 //   href: string;
@@ -32,6 +33,7 @@ import SearchField from "@/components/_components/SearchField";
 export default async function Header() {
   const cart = await getCart(await getWixServerClient());
   const collections = await getCollections(await getWixServerClient());
+  const loggedInMember = await getLoggedInMember(await getWixServerClient());
 
   console.log(collections);
 
@@ -123,8 +125,8 @@ export default async function Header() {
           {/* Right Side - Icons */}
           <div className="flex items-center gap-4">
             <ShoppingCartButton initialData={cart} />
-            <UserButton />
-            <ProfileIcon />
+            {/* <UserButton /> */}
+            <ProfileIcon loggedInMember={loggedInMember} />
           </div>
         </nav>
       </header>

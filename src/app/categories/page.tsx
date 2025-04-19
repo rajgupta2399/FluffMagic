@@ -1,4 +1,4 @@
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 import React from "react";
 import {Link} from "next-view-transitions"
 import { getCollections } from "@/wix-api/collections";
