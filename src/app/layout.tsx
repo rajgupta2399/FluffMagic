@@ -23,6 +23,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Fluff Magic",
   description: "The Fluff Magic E-Commerce Shop For Soft Toys & Baby Products",
+  icons: {
+    icon: "/favicon.ico", // This path is relative to the /public folder
+  },
 };
 
 export default function RootLayout({
