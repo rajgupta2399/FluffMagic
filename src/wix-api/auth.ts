@@ -7,8 +7,12 @@ export async function generateOAuthData(
   originPath?: string,
 ) {
   return wixClient.auth.generateOAuthData(
-    env.NEXT_PUBLIC_BASE_URL + "/api/auth/callback/wix",
-    env.NEXT_PUBLIC_BASE_URL + "/" + (originPath || ""),
+    env.NEXT_PUBLIC_BASE_URL
+      ? env.NEXT_PUBLIC_BASE_URL + "/api/auth/callback/wix"
+      : "https://fluffmagicofficial.netlify.app//api/auth/callback/wix",
+    env.NEXT_PUBLIC_BASE_URL
+      ? env.NEXT_PUBLIC_BASE_URL + "/" + (originPath || "")
+      : "https://fluffmagicofficial.netlify.app/" + (originPath || ""),
   );
 }
 
