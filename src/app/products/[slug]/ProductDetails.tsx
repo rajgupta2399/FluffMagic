@@ -17,6 +17,7 @@ import {
 import { InfoIcon } from "lucide-react";
 import AddToCartButton from "@/components/_components/AddToCartButton";
 import BackInStockNotificationButton from "@/components/_components/BackInStockNotification";
+import BuyNowButton from "@/components/_components/BuyNowButton";
 
 interface ProductDetailsProps {
   product: products.Product;
@@ -118,12 +119,12 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
                 disabled={availableQuantityExceeded || quantity < 1}
                 className="w-full"
               />
-              {/* <BuyNowButton
-              product={product}
-              selectedOptions={selectedOptions}
-              quantity={quantity}
-              disabled={availableQuantityExceeded || quantity < 1}
-            /> */}
+              <BuyNowButton
+                product={product}
+                selectedOptions={selectedOptions}
+                quantity={quantity}
+                disabled={availableQuantityExceeded || quantity < 1}
+              />
             </div>
           ) : (
             // "Out Of Stock"

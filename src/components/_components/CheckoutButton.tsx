@@ -1,6 +1,6 @@
-import { useCartCheckout } from "@/hooks/useCartCheckout";
 import { LoadingButton } from "./LoadingButton";
 import { ButtonProps } from "../ui/button";
+import { useCartCheckout } from "@/hooks/checkout";
 
 export default function CheckoutButton(props: ButtonProps) {
   const { startCheckoutFlow, pending } = useCartCheckout();

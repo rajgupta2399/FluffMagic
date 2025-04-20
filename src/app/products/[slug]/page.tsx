@@ -1,7 +1,10 @@
-import { getProductBySlug } from "@/wix-api/products";
+import { getProductBySlug, getRelatedProducts } from "@/wix-api/products";
 import { notFound } from "next/navigation";
 import ProductDetails from "./ProductDetails";
 import { getWixServerClient } from "@/lib/wix-client.server";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Suspense } from "react";
+import Product from "@/components/_components/Product";
 // import { Metadata } from "next";
 
 // interface PageProps {
@@ -69,6 +72,11 @@ async function Page({ params }: PageProps) {
     <main className="mx-auto max-w-7xl space-y-10 px-5 py-[105px] sm:px-10">
       <ProductDetails product={product} />
       {/* <pre>{JSON.stringify(product, null, 2)}</pre> */}
+      <hr />
+
+      {/* <Suspense fallback={<RelatedProductsLoadingSkeleton />}>
+        <RelatedProducts productId={product._id} />
+      </Suspense> */}
     </main>
   );
 }
@@ -78,3 +86,35 @@ export default Page as unknown as React.FC<{
   params: Promise<{ slug: string }>;
   searchParams?: Promise<SearchParams>;
 }>;
+
+interface RelatedProductsProps {
+  productId: string;
+}
+
+async function RelatedProducts({ productId }: RelatedProductsProps) {
+  const wixClient = await getWixServerClient();
+  const relatedProducts = await getRelatedProducts(wixClient, productId);
+
+  if (!relatedProducts.length) return null;
+
+  return (
+    <div className="space-y-5">
+      <h2 className="text-2xl font-bold">Related Products</h2>
+      <div className="flex grid-cols-2 flex-col gap-5 sm:grid lg:grid-cols-4">
+        {relatedProducts.map((product) => (
+          <Product key={product._id} product={product} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function RelatedProductsLoadingSkeleton() {
+  return (
+    <div className="flex grid-cols-2 flex-col gap-5 pt-12 sm:grid lg:grid-cols-4">
+      {Array.from({ length: 4 }).map((_, i) => (
+        <Skeleton key={i} className="h-[26rem] w-full" />
+      ))}
+    </div>
+  );
+}
