@@ -94,7 +94,7 @@ export async function getRelatedProducts(
   const result = await wixClient.recommendations.getRecommendation(
     [
       {
-        _id: "60a47cf3-9b39-2ad0-54dc-254b6b832aff", // "From the same categories"
+        _id: "00000000-000000-000000-000000000001", // "From the same categories"
         appId: WIX_STORES_APP_ID,
       },
       // {

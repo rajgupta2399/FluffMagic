@@ -26,6 +26,44 @@ export async function getCheckoutUrlForCurrentCart(wixClient: WixClient) {
   return redirectSession.fullUrl;
 }
 
+// export async function getCheckoutUrlForCurrentCart(wixClient: WixClient) {
+//   try {
+//     // First ensure the cart exists and has items
+//     const cart  = await wixClient.currentCart.getCurrentCart();
+//     if (!cart?.lineItems?.length) {
+//       throw new Error("Cart is empty");
+//     }
+
+//     // Create checkout with explicit payment options
+//     const { checkoutId } =
+//       await wixClient.currentCart.createCheckoutFromCurrentCart({
+//         channelType: checkout.ChannelType.WEB,
+//       });
+
+//     // Create redirect session
+//     const { redirectSession } = await wixClient.redirects.createRedirectSession(
+//       {
+//         ecomCheckout: { checkoutId },
+//         callbacks: {
+//           postFlowUrl: window.location.href,
+//           thankYouPageUrl: `${env.NEXT_PUBLIC_BASE_URL}/checkout-success`,
+//         },
+//       },
+//     );
+
+//     if (!redirectSession) {
+//       throw new Error("Failed to create redirect session");
+//     }
+
+//     return redirectSession.fullUrl;
+//   } catch (error) {
+//     console.error("Checkout error details:", JSON.stringify(error, null, 2));
+//     throw new Error(
+//       error.message || "Payment configuration error. Please try again later.",
+//     );
+//   }
+// }
+
 export interface GetCheckoutUrlForProductValues {
   product: products.Product;
   quantity: number;

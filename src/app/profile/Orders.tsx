@@ -1,7 +1,7 @@
 "use client";
 
 import { LoadingButton } from "@/components/_components/LoadingButton";
-import Order from "@/components/Order";
+import Order from "@/components/_components/Order";
 import { Skeleton } from "@/components/ui/skeleton";
 import { wixBrowserClient } from "@/lib/wix-client.browser";
 import { getUserOrders } from "@/wix-api/orders";

@@ -31,6 +31,37 @@ export function useCartCheckout() {
   return { startCheckoutFlow, pending };
 }
 
+// export function useCartCheckout() {
+//   const { toast } = useToast();
+//   const [pending, setPending] = useState(false);
+
+//   async function startCheckoutFlow() {
+//     setPending(true);
+//     try {
+//       const checkoutUrl = await getCheckoutUrlForCurrentCart(wixBrowserClient);
+//       window.location.href = checkoutUrl;
+//     } catch (error) {
+//       setPending(false);
+
+//       let errorMessage = "Failed to load checkout. Please try again.";
+//       if (error?.message?.includes("SITE_MUST_ACCEPT_PAYMENTS")) {
+//         errorMessage =
+//           "Payment methods not configured. Please contact support.";
+//       } else if (error?.message?.includes("Cart is empty")) {
+//         errorMessage = "Your cart is empty. Add items to proceed.";
+//       }
+
+//       toast({
+//         variant: "destructive",
+//         title: "Checkout Error",
+//         description: errorMessage,
+//       });
+//     }
+//   }
+
+//   return { startCheckoutFlow, pending };
+// }
+
 export function useQuickBuy() {
   const { toast } = useToast();
 

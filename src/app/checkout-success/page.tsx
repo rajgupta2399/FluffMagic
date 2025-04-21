@@ -1,49 +1,59 @@
-// import Order from "@/components/Order";
-// import { getWixServerClient } from "@/lib/wix-client.server";
-// import { getLoggedInMember } from "@/wix-api/members";
-// import { getOrder } from "@/wix-api/orders";
+import Order from "@/components/_components/Order";
+import { getWixServerClient } from "@/lib/wix-client.server";
+import { getLoggedInMember } from "@/wix-api/members";
+import { getOrder } from "@/wix-api/orders";
 import { Metadata } from "next";
-// import Link from "next/link";
-// import { notFound } from "next/navigation";
-// import ClearCart from "./ClearCart";
-
-// interface PageProps {
-//   searchParams: { orderId: string };
-// }
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import ClearCart from "./ClearCart";
 
 export const metadata: Metadata = {
   title: "Checkout success",
 };
 
-export default async function Page() {
-  //   const wixClient = getWixServerClient();
+export default async function OrderPage({
+  searchParams,
+}: {
+  searchParams: { orderId: string; wixMemberLoggedIn?: string };
+}) {
+  try {
+    const wixClient = await getWixServerClient();
+    const { orderId } = searchParams;
 
-  // //   const [order, loggedInMember] = await Promise.all([
-  // //     getOrder(wixClient, orderId),
-  // //     getLoggedInMember(wixClient),
-  // //   ]);
+    if (!orderId) {
+      notFound();
+    }
 
-  // //   if (!order) {
-  // //     notFound();
-  // //   }
+    const [order, loggedInMember] = await Promise.all([
+      getOrder(wixClient, orderId),
+      getLoggedInMember(wixClient),
+    ]);
 
-  // //   const orderCreatedDate = order._createdDate
-  // //     ? new Date(order._createdDate)
-  // //     : null;
+    if (!order) {
+      notFound();
+    }
 
-  return (
-    <main className="mx-auto flex max-w-3xl flex-col items-center space-y-5 px-5 py-10">
-      <h1 className="text-3xl font-bold">We received your order!</h1>
-      <p>A summary of your order was sent to your email address.</p>
-      {/* <h2 className="text-2xl font-bold">Order details</h2>
-      <Order order={order} />
-      {loggedInMember && (
-        <Link href="/profile" className="block text-primary hover:underline">
-          View all your orders
-        </Link>
-      )}
-      {orderCreatedDate &&
-        orderCreatedDate.getTime() > Date.now() - 60_000 * 5 && <ClearCart />} */}
-    </main>
-  );
+    const orderCreatedDate = order._createdDate
+      ? new Date(order._createdDate)
+      : null;
+
+    return (
+      <main className="mx-auto flex max-w-3xl flex-col items-center space-y-5 px-5 mt-24 mb-10">
+        <h1 className="text-3xl font-bold">We received your order!</h1>
+        <p>A summary of your order was sent to your email address.</p>
+        <h2 className="text-2xl font-bold">Order details</h2>
+        <Order order={order} />
+        {loggedInMember && (
+          <Link href="/profile" className="block text-primary hover:underline">
+            View all your orders
+          </Link>
+        )}
+        {orderCreatedDate &&
+          orderCreatedDate.getTime() > Date.now() - 60_000 * 5 && <ClearCart />}
+      </main>
+    );
+  } catch (error) {
+    console.error("Error loading order:", error);
+    notFound();
+  }
 }

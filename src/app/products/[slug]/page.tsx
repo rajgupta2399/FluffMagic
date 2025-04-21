@@ -1,10 +1,11 @@
-import { getProductBySlug, getRelatedProducts } from "@/wix-api/products";
+import { getProductBySlug } from "@/wix-api/products";
+// import { getProductBySlug, getRelatedProducts } from "@/wix-api/products";
 import { notFound } from "next/navigation";
 import ProductDetails from "./ProductDetails";
 import { getWixServerClient } from "@/lib/wix-client.server";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Suspense } from "react";
-import Product from "@/components/_components/Product";
+// import { Skeleton } from "@/components/ui/skeleton";
+// import { Suspense } from "react";
+// import Product from "@/components/_components/Product";
 // import { Metadata } from "next";
 
 // interface PageProps {
@@ -87,34 +88,34 @@ export default Page as unknown as React.FC<{
   searchParams?: Promise<SearchParams>;
 }>;
 
-interface RelatedProductsProps {
-  productId: string;
-}
+// interface RelatedProductsProps {
+//   productId: string;
+// }
 
-async function RelatedProducts({ productId }: RelatedProductsProps) {
-  const wixClient = await getWixServerClient();
-  const relatedProducts = await getRelatedProducts(wixClient, productId);
+// async function RelatedProducts({ productId }: RelatedProductsProps) {
+//   const wixClient = await getWixServerClient();
+//   const relatedProducts = await getRelatedProducts(wixClient, productId);
 
-  if (!relatedProducts.length) return null;
+//   if (!relatedProducts.length) return null;
 
-  return (
-    <div className="space-y-5">
-      <h2 className="text-2xl font-bold">Related Products</h2>
-      <div className="flex grid-cols-2 flex-col gap-5 sm:grid lg:grid-cols-4">
-        {relatedProducts.map((product) => (
-          <Product key={product._id} product={product} />
-        ))}
-      </div>
-    </div>
-  );
-}
+//   return (
+//     <div className="space-y-5">
+//       <h2 className="text-2xl font-bold">Related Products</h2>
+//       <div className="flex grid-cols-2 flex-col gap-5 sm:grid lg:grid-cols-4">
+//         {relatedProducts.map((product) => (
+//           <Product key={product._id} product={product} />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
 
-function RelatedProductsLoadingSkeleton() {
-  return (
-    <div className="flex grid-cols-2 flex-col gap-5 pt-12 sm:grid lg:grid-cols-4">
-      {Array.from({ length: 4 }).map((_, i) => (
-        <Skeleton key={i} className="h-[26rem] w-full" />
-      ))}
-    </div>
-  );
-}
+// function RelatedProductsLoadingSkeleton() {
+//   return (
+//     <div className="flex grid-cols-2 flex-col gap-5 pt-12 sm:grid lg:grid-cols-4">
+//       {Array.from({ length: 4 }).map((_, i) => (
+//         <Skeleton key={i} className="h-[26rem] w-full" />
+//       ))}
+//     </div>
+//   );
+// }
