@@ -32,7 +32,7 @@ interface PageProps {
 
 //   return {
 //     title: product.name,
-//     description: "Get this product on Fluff Magic",
+//     description: "Get this product on Printustaad",
 //     openGraph: {
 //       images: mainImage?.url
 //         ? [

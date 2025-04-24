@@ -1,6 +1,6 @@
-# Fluff Magic
+# Printustaad
 
-The Fluff Magic Project is an e-commerce web application designed to facilitate the online sale of soft toys and baby related products across India. This project leverages Wix Headless CMS for backend database management and product listings while utilizing Next.js for a dynamic, high-performance frontend.
+The Printustaad Project is an e-commerce web application designed to facilitate the online sale of soft toys and baby related products across India. This project leverages Wix Headless CMS for backend database management and product listings while utilizing Next.js for a dynamic, high-performance frontend.
 
 ### Key Features of the Project:
 
