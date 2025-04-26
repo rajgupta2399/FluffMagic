@@ -1,7 +1,5 @@
 import * as React from "react";
 import { Home, User, LayoutGrid, ReceiptText } from "lucide-react";
-import Image from "next/image";
-import Logo from "../assets/fluffmagic.png";
 import { Link } from "next-view-transitions";
 import { cn } from "@/lib/utils";
 import {
@@ -23,6 +21,7 @@ import UserButton from "@/components/_components/UserButton";
 import { getCollections } from "@/wix-api/collections";
 import SearchField from "@/components/_components/SearchField";
 import { getLoggedInMember } from "@/wix-api/members";
+import Logo from "./Logo";
 // interface ComponentItem {
 //   title: string;
 //   href: string;
@@ -54,16 +53,7 @@ export default async function Header() {
           {/* Left Side - Logo & Navigation */}
           <div className="flex items-center gap-10">
             {/* Logo */}
-            <Link href="/">
-              <Image
-                width={60}
-                height={50}
-                src={Logo}
-                alt="logo"
-                className="w-10 sm:w-14"
-              />
-            </Link>
-
+            <Logo />
             {/* Navigation Links */}
             <ul className="flex items-center gap-6">
               <li className="mt-1">
@@ -135,9 +125,7 @@ export default async function Header() {
       <header className="fixed left-0 top-0 z-50 w-full bg-background shadow-lg dark:bg-[#16181D] lg:hidden">
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
           {/* Logo */}
-          <Link href={"/"}>
-            <Image width={60} height={100} src={Logo} alt="logo" />
-          </Link>
+          <Logo />
           {/* <a href="#" className="flex items-center gap-2 text-gray-900"></a> */}
           <div className="flex items-center gap-3 align-middle">
             {/* In your mobile header */}

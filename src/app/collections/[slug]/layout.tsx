@@ -30,7 +30,7 @@ async function CollectionsLayout({ children, params: { slug } }: LayoutProps) {
   const banner = collection.media?.mainMedia?.image;
 
   return (
-    <main className="mx-auto max-w-7xl space-y-10 px-5 py-10 sm:mt-12">
+    <main className="mx-auto max-w-7xl space-y-10 px-5 py-10 mt-10 sm:mt-12">
       <div className="flex flex-col gap-10">
         {banner && (
           <div className="relative object-contain hidden sm:block">
@@ -48,7 +48,7 @@ async function CollectionsLayout({ children, params: { slug } }: LayoutProps) {
         )}
         <h1
           className={cn(
-            "mx-auto text-3xl font-bold md:text-4xl",
+            "mx-auto text-2xl font-bold md:text-4xl",
             banner && "sm:hidden",
           )}
         >

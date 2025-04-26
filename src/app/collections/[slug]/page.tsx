@@ -61,7 +61,7 @@ interface ProductsProps {
 }
 
 async function Products({ collectionId, page }: ProductsProps) {
-  const pageSize = 16;
+  const pageSize = 20;
 
   // First get the Wix client instance
   const wixClient = await getWixServerClient();
@@ -83,7 +83,7 @@ async function Products({ collectionId, page }: ProductsProps) {
 
   return (
     <div className="space-y-10">
-      <div className="flex grid-cols-2 flex-col gap-5 sm:grid md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {collectionProducts.items.map((product) => (
           <Product key={product._id} product={product} />
         ))}
