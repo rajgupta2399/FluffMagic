@@ -16,7 +16,7 @@ import Image from "next/image";
 import {Link} from "next-view-transitions"
 import SoftToyBanner1 from "../../../assets/Soft toys combo.png";
 import SoftToyBanner3 from "../../../assets/Combos.png";
-import SoftToyBanner2 from "../../../assets/Baby product combo.png";
+import SoftToyBanner2 from "../../../assets/Baby product combo.png"
 import { ChevronRight } from "lucide-react";
 // import { ChevronRight } from "lucide-react";
 

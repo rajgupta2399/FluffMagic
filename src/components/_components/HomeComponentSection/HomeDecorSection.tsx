@@ -13,10 +13,10 @@ import Autoplay from "embla-carousel-autoplay";
 // import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
 import { ProductsQueryResult } from "@wix/auto_sdk_stores_products";
 import Image from "next/image";
-import {Link} from "next-view-transitions"
-import HomeDecorBanner1 from "../../../assets/home decor products banner sqr.png"
-import HomeDecorBanner2 from "../../../assets/home decor banner reg 1.png"
-import HomeDecorBanner3 from "../../../assets/home decor products banner reg.png"
+import { Link } from "next-view-transitions";
+import HomeDecorBanner1 from "../../../assets/home decor products banner sqr.png";
+import HomeDecorBanner2 from "../../../assets/home decor banner reg 2.png";
+import HomeDecorBanner3 from "../../../assets/home decorbanner reg 1.png";
 import { ChevronRight } from "lucide-react";
 
 // Skeleton Loader for better UX
@@ -74,8 +74,8 @@ export default function HomeDecorSection() {
         <div className="flex w-full">
           {/* Skeleton for Banner 1 */}
           <div className="digitalInstrumentBanner1 w-full sm:w-1/2 sm:pr-4">
-          <div className="h-80 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
-        </div>
+            <div className="h-80 w-full animate-pulse rounded-lg bg-gray-300 dark:bg-gray-700"></div>
+          </div>
           {/* Skeleton for Banner 2 */}
           <div className="digitalInstrumentBanner2 hidden w-1/2 sm:block">
             <div className="di1 flex space-x-4 pt-1">
@@ -114,7 +114,7 @@ export default function HomeDecorSection() {
         </h2>
         <Link
           href="/baby-products"
-          className="flex items-center space-x-2 text-sm font-semibold transition-all duration-300 hover:translate-x-1 hover:text-[#fd9aac] -mb-6"
+          className="-mb-6 flex items-center space-x-2 text-sm font-semibold transition-all duration-300 hover:translate-x-1 hover:text-[#fd9aac]"
         >
           <span>See All</span>
           <ChevronRight className="h-4 w-4" />
@@ -195,7 +195,7 @@ export default function HomeDecorSection() {
                 key={product._id!} // Using non-null assertion if sure _id exists
                 className="basis-1/2 md:basis-1/3 lg:basis-1/5"
               >
-                <div className="h-full rounded-lg border p-1  bg-white dark:bg-[#16181D] ">
+                <div className="h-full rounded-lg border bg-white p-1 dark:bg-[#16181D]">
                   <ProductSection product={product} />
                 </div>
               </CarouselItem>

@@ -14,9 +14,9 @@ import Autoplay from "embla-carousel-autoplay";
 import { ProductsQueryResult } from "@wix/auto_sdk_stores_products";
 import Image from "next/image";
 import {Link} from "next-view-transitions"
-import SoftToyBanner1 from "../../../assets/softToysBanner1.png";
-import SoftToyBanner3 from "../../../assets/softToysSquare.png";
-import SoftToyBanner2 from "../../../assets/softToysBanner2.png";
+import SoftToyBanner1 from "../../../assets/soft toys banner reg 1.png";
+import SoftToyBanner3 from "../../../assets/soft toys banner sqr.png"
+import SoftToyBanner2 from "../../../assets/soft toys banner reg 2.png";
 import { ChevronRight } from "lucide-react";
 // import { ChevronRight } from "lucide-react";
 

@@ -13,11 +13,11 @@ import Autoplay from "embla-carousel-autoplay";
 // import { ProductsQueryResult } from "@wix/stores_products"; // Import Wix types
 import { ProductsQueryResult } from "@wix/auto_sdk_stores_products";
 
-import BabyToysBanner1 from "../../../assets/babyProductsBanner1.png";
-import BabyToysBanner2 from "../../../assets/babyProductsBanner2.png";
-import BabyToysBanner3 from "../../../assets/babyProductsSquare.png";
+import BabyToysBanner1 from "../../../assets/baby products banner reg 2.png";
+import BabyToysBanner2 from "../../../assets/baby products banner reg 1.png";
+import BabyToysBanner3 from "../../../assets/baby products banner sqr.png";
 import Image from "next/image";
-import {Link} from "next-view-transitions"
+import { Link } from "next-view-transitions";
 import { ChevronRight } from "lucide-react";
 // import { ChevronRight } from "lucide-react";
 

@@ -8,13 +8,11 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-// import Banner1 from "../../assets/banner1.png"
-// import Banner2 from "../../assets/banner2.png";
-// import Banner3 from "../../assets/banner3.png";
-import Banners1 from "../../assets/1.webp"
-// import Banners2 from "../../assets/2.webp"
-import Banners3 from "../../assets/3.webp"
-import Banners4 from "../../assets/4.webp"
+import Banners1 from "../../assets/hero section 1.png";
+import Banners2 from "../../assets/hero section 2.png";
+import Banners3 from "../../assets/hero section 3.png";
+import Banners4 from "../../assets/hero section 4.png";
+import Banners5 from "../../assets/hero section 5.png";
 
 const Banners = () => {
   return (
@@ -40,7 +38,7 @@ const Banners = () => {
             />
           </div>
         </CarouselItem>
-        <CarouselItem className=" sm:flex hidden">
+        <CarouselItem className="hidden sm:flex">
           <div className="flex h-32 w-full items-center justify-center bg-secondary md:h-96">
             <Image
               src={Banners4}
@@ -66,7 +64,7 @@ const Banners = () => {
             />
           </div>
         </CarouselItem>
-        {/* <CarouselItem>
+        <CarouselItem>
           <div className="flex h-32 w-full items-center justify-center bg-secondary md:h-96">
             <Image
               src={Banners2}
@@ -78,7 +76,20 @@ const Banners = () => {
               height={100}
             />
           </div>
-        </CarouselItem> */}
+        </CarouselItem>
+        <CarouselItem>
+          <div className="flex h-32 w-full items-center justify-center bg-secondary md:h-96">
+            <Image
+              src={Banners5}
+              alt="Banner 2"
+              unoptimized
+              className="h-full w-full rounded-xl object-fill"
+              priority
+              width={100}
+              height={100}
+            />
+          </div>
+        </CarouselItem>
       </CarouselContent>
     </Carousel>
   );
