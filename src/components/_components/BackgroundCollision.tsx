@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {Link} from "next-view-transitions"
+import { Link } from "next-view-transitions";
 
 export default function FooterApp() {
   return (
@@ -101,47 +101,43 @@ export default function FooterApp() {
 
             <ul className="mt-6 space-y-4">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/about"
                   title=""
                   className="flex text-base transition-all duration-200 hover:text-primary focus:text-primary"
                 >
-                  {" "}
-                  About{" "}
-                </a>
+                  About
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/about/privacyPolicy"
                   title=""
                   className="flex text-base transition-all duration-200 hover:text-primary focus:text-primary"
                 >
-                  {" "}
-                  Features{" "}
-                </a>
+                  Privacy & Policy
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/about/returnRefurn"
                   title=""
                   className="flex text-base transition-all duration-200 hover:text-primary focus:text-primary"
                 >
-                  {" "}
-                  Works{" "}
-                </a>
+                  Return Policy
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/about/termAndCondition"
                   title=""
                   className="flex text-base transition-all duration-200 hover:text-primary focus:text-primary"
                 >
-                  {" "}
-                  Career{" "}
-                </a>
+                  Terms & Condition
+                </Link>
               </li>
             </ul>
           </div>
