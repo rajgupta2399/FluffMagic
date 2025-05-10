@@ -1,4 +1,6 @@
 // components/Terms.tsx
+// Set to dynamic rendering
+export const dynamic = 'force-dynamic' // Force dynamic rendering
 import React from "react";
 
 export default function page() {

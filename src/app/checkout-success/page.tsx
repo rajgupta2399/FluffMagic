@@ -1,4 +1,6 @@
+export const dynamic = "force-dynamic"; // Force dynamic rendering
 import Order from "@/components/_components/Order";
+// Set to dynamic rendering
 import { getWixServerClient } from "@/lib/wix-client.server";
 import { getLoggedInMember } from "@/wix-api/members";
 import { getOrder } from "@/wix-api/orders";
@@ -38,7 +40,7 @@ export default async function OrderPage({
       : null;
 
     return (
-      <main className="mx-auto flex max-w-3xl flex-col items-center space-y-5 px-5 mt-24 mb-10">
+      <main className="mx-auto mb-10 mt-24 flex max-w-3xl flex-col items-center space-y-5 px-5">
         <h1 className="text-3xl font-bold">We received your order!</h1>
         <p>A summary of your order was sent to your email address.</p>
         <h2 className="text-2xl font-bold">Order details</h2>

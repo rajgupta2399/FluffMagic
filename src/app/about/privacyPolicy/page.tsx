@@ -1,8 +1,10 @@
+export const dynamic = "force-dynamic"; // Force dynamic rendering
 import React from "react";
+// Set to dynamic rendering
 
 const page = () => {
   return (
-    <div className="privacy-policy-container mx-auto max-w-5xl p-6 sm:my-20 my-16">
+    <div className="privacy-policy-container mx-auto my-16 max-w-5xl p-6 sm:my-20">
       <h1 className="mb-6 text-3xl font-bold">Privacy Policy</h1>
 
       <section className="mb-8">

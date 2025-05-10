@@ -1,4 +1,6 @@
+export const dynamic = 'force-dynamic' // Force dynamic rendering
 import React from "react";
+// Set to dynamic rendering
 
 const page = () => {
   return (

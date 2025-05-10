@@ -1,4 +1,6 @@
 // components/pa.tsx
+// Set to dynamic rendering
+export const dynamic = 'force-dynamic' // Force dynamic rendering
 import React from 'react';
 
 const page = () => {
