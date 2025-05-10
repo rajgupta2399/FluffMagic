@@ -11,7 +11,7 @@ export default function Logo() {
   return (
     <Link href="/" className="relative block h-10 w-10 sm:h-14 sm:w-14">
       <Image
-        src={theme === "dark" ? lightThemeLogo : darkThemeLogo}
+        src={theme === "dark" ? darkThemeLogo : lightThemeLogo}
         alt="Website logo"
         className="object-contain"
         fill

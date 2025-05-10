@@ -58,7 +58,7 @@ const ProfileIcon = ({ loggedInMember }: ProfileIconProps) => {
     <div className="flex items-center gap-2">
       <button
         onClick={toggleTheme}
-        className="rounded-full p-2 hover:bg-gray-100 dark:bg-[#16181D]"
+        className="rounded-full p-2 hover:bg-gray-100 dark:bg-[#16181D] hidden"
       >
         {theme === "light" ? (
           <MoonIcon className="size-5" />
