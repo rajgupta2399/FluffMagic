@@ -139,6 +139,16 @@ export default function FooterApp() {
                   Terms & Condition
                 </Link>
               </li>
+
+              <li>
+                <Link
+                  href="/about/disclaimer"
+                  title=""
+                  className="flex text-base transition-all duration-200 hover:text-primary focus:text-primary"
+                >
+                  Disclaimer
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -148,7 +158,7 @@ export default function FooterApp() {
             </p>
 
             <ul className="mt-6 space-y-4">
-              <li>
+              {/* <li>
                 <a
                   href="#"
                   title=""
@@ -157,9 +167,9 @@ export default function FooterApp() {
                   {" "}
                   Customer Support{" "}
                 </a>
-              </li>
+              </li> */}
 
-              <li>
+              {/* <li>
                 <a
                   href="#"
                   title=""
@@ -168,27 +178,26 @@ export default function FooterApp() {
                   {" "}
                   Delivery Details{" "}
                 </a>
-              </li>
+              </li> */}
 
               <li>
                 <Link
-                  href={"/refund-return-policy"}
+                  href="/about/termAndCondition"
                   title=""
                   className="flex text-base transition-all duration-200 hover:text-primary focus:text-primary"
                 >
-                  Terms & Conditions
+                  Terms & Condition
                 </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/about/privacyPolicy"
                   title=""
                   className="flex text-base transition-all duration-200 hover:text-primary focus:text-primary"
                 >
-                  {" "}
-                  Privacy Policy{" "}
-                </a>
+                  Privacy & Policy
+                </Link>
               </li>
             </ul>
           </div>

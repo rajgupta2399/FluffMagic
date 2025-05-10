@@ -18,7 +18,7 @@ export default async function Page() {
   if (!member) notFound();
 
   return (
-    <main className="mx-auto max-w-7xl space-y-10 px-5 py-10 sm:mt-20 mb-5">
+    <main className="mx-auto max-w-7xl space-y-10 px-5 py-10 sm:my-20 mb-5 my-10">
       <h1 className="text-center text-3xl font-bold md:text-4xl">
         Your profile
       </h1>

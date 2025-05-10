@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Home, User, LayoutGrid, ReceiptText } from "lucide-react";
+import { Home, LayoutGrid, ReceiptText } from "lucide-react";
 import { Link } from "next-view-transitions";
 import { cn } from "@/lib/utils";
 import {
@@ -17,11 +17,12 @@ import ProfileIcon from "@/components/_components/ProfileIcon";
 import { getCart } from "@/wix-api/cart";
 import ShoppingCartButton from "./ShoppingCartButton";
 import { getWixServerClient } from "@/lib/wix-client.server";
-import UserButton from "@/components/_components/UserButton";
+// import UserButton from "@/components/_components/UserButton";
 import { getCollections } from "@/wix-api/collections";
 import SearchField from "@/components/_components/SearchField";
 import { getLoggedInMember } from "@/wix-api/members";
 import Logo from "./Logo";
+import UserButton from "@/components/_components/UserButton";
 // interface ComponentItem {
 //   title: string;
 //   href: string;
@@ -162,10 +163,10 @@ export default async function Header() {
             </Link>
           </li>
           <li>
-            <Link href={"/profile"} className="flex flex-col items-center">
-              <User className="h-5 w-5" />
-              <span className="text-xs font-semibold">Profile</span>
-            </Link>
+            <div className="flex h-5 w-5 items-center justify-center">
+              <ProfileIcon loggedInMember={loggedInMember} />
+            </div>
+            <span className="text-xs font-semibold">Profile</span>
           </li>
         </ul>
       </nav>
