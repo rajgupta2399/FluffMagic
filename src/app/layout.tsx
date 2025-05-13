@@ -6,6 +6,7 @@ import Header from "./Navbar";
 import ReactQueryProvider from "./ReactQueryProvider";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "next-themes";
+import NextTopLoader from "nextjs-toploader";
 import { ViewTransitions } from "next-view-transitions";
 
 const geistSans = Geist({
@@ -39,6 +40,19 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
+          <NextTopLoader
+            color="#7f22fe"
+            initialPosition={0.08}
+            crawlSpeed={200}
+            height={3}
+            crawl={true}
+            showSpinner={false}
+            easing="ease"
+            speed={2000}
+            shadow="0 0 10px #2299DD,0 0 5px #2299DD"
+            zIndex={1600}
+            showAtBottom={false}
+          />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
