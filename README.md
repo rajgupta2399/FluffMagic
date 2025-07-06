@@ -28,4 +28,4 @@ The Printustaad Project is an e-commerce web application designed to facilitate 
 - Ensures secure transactions and order tracking.
 
 Live Link  https://fluffmagicofficial.netlify.app/
-Live : https://printustaad.com/
+
